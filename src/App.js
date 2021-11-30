@@ -1,37 +1,30 @@
 
 import React from "react";
 import './App.css';
-import AdminDashboard from './pages/adminDashboard';
-
+import AdminDashboard from './pages/AdminDashboard';
+import { NotificationContainer } from "react-notifications";
 import {
   BrowserRouter as Router, Switch,Route,} from "react-router-dom";
-// import styled, {ThemeProvider} from 'styled-components';
-// import {lightTheme, darkTheme, GlobalStyles} from './theme';
+import "react-notifications/lib/notifications.css";
+import { Web3ReactProvider } from "@web3-react/core"
+import Web3Provider from "web3"
 
-// const StyledApp = styled.div`
-// color: ${props => props.theme.fontColor};
-// `
-
+function getLibrary(provider, connector) {
+  return new Web3Provider(provider) // this will vary according to whether you use e.g. ethers or web3.js
+}
 
 function App() {
-//   const [ theme, setTheme] = useState("light");
-// const themeToggler = () => {
-//   theme === 'light' ? setTheme('dark') : setTheme("light");
-// }
-
   return (
-    // <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
-    //   <GlobalStyles/>
     <div className="App">
-      {/* <StyledApp> <button onClick={() => themeToggler()}>button</button> */}
-      <Router>
-      <Switch>
-      <Route path="/" component={AdminDashboard} />
-      </Switch>
-      </Router>
-      {/* </StyledApp> */}
+      <Web3ReactProvider getLibrary={getLibrary}>
+        <NotificationContainer/>
+        <Router>
+          <Switch>
+            <Route path="/" component={AdminDashboard} />
+          </Switch>
+        </Router>
+      </Web3ReactProvider>
     </div>
-    // </ThemeProvider>
   );
 }
 

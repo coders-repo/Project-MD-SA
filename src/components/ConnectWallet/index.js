@@ -1,30 +1,37 @@
 import React, {useState} from "react";
+import NotificationManager from "react-notifications/lib/NotificationManager";
+import { useWeb3React } from "@web3-react/core";
+import { injected } from "../../utility/connector";
 import './style.scss';
 
 export default function ConnectWallet () {
-  const [ConnectWallet, setConnectWallet] = React.useState(0);
-  // change useStare to 0 and 1
-  // wallet connect = 1
-  // wallet not connect = 0
-  let CWName = '';
-  if( ConnectWallet === 1 ){
-    CWName = "CWNameTrue";
-  }else{
-    CWName = "CWNameFalse";
+  const [ConnectWallet, setConnectWallet] = useState(false);
+  const { account, activate } = useWeb3React();
+
+  const connectWallet = async() => {
+    try {
+      activate(injected);
+      setConnectWallet(true);
+    } catch (ex) {
+      console.log(ex);
+    }
   }
+
   return (
     <>
-    <a className={`wallet_connected ${CWName}`} data-bs-toggle="modal" data-bs-target="#connectWallet">
-        <div className="Wallet-Connect">
-          <p>0xbAu7...f08a</p>
-        </div>
-        <div className="Wallet-NotConnect">
-          <p>Connect Wallet</p>
-        </div>
-    </a>
-
-   
-</>
+      <a className={`wallet_connected ${ConnectWallet ? 'CWNameTrue' : 'CWNameFalse'}`}>
+          {
+            account ? 
+            <div className="Wallet-Connect">
+              <p>{account.substr(0,6) + '...' + account.substr(-4) }</p>
+            </div>
+            :
+            <div className="Wallet-NotConnect" onClick={connectWallet}>
+              <p>Connect Wallet</p>
+            </div>
+          }
+      </a>
+    </>
   );
 }
 
