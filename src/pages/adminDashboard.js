@@ -6,9 +6,8 @@ import getWeb3 from '../utility/getWeb3';
 import { useWeb3React } from "@web3-react/core";
 import Loading from '../components/Loading';
 import NotificationManager from 'react-notifications/lib/NotificationManager';
-import $ from "jquery";
-
-const StakingAddress = "0x7192Fc21292691aDC99c9012B43481f390b9A329";
+import config from "../config.json";
+const { StakingAddress } = config;
 
 export default function AdminDashboard() {
     const { account, activate } = useWeb3React();
@@ -18,12 +17,16 @@ export default function AdminDashboard() {
         dogeAPY: '',
         loriaAPY: '',
         dogeEli: '',
-        loriaEli: ''
+        loriaEli: '',
+        dogePen: '',
+        loriaPen: ''
     });
     const [DogeAPY, setDogeAPY] = useState('');
     const [LoriaAPY, setLoriaAPY] = useState('');
     const [DogeEli, setDogeEli] = useState('');
     const [LoriaEli, setLoriaEli] = useState('');
+    const [DogePen, setDogePenalty] = useState('');
+    const [LoriaPen, setLoriaPenalty] = useState('');
     const [activeItem, setActiveItem] = useState(-1);
     const [isLoading, setIsLoading] = useState(false);
 
@@ -35,18 +38,33 @@ export default function AdminDashboard() {
     },[]);
 
     useEffect(async() => {
-        if (account && Staking) {
-            const _dogeAPY =  await Staking.methods.getDogeAPY().call();
-            const _dogeEli = await Staking.methods.getDogeElig().call();
-            const _loriaAPY = await Staking.methods.getLoriaAPY.call();
-            const _loriaEli = await Staking.methods.getLoriaElig.call();
-            setInitData({ ...initData, dogeAPY: _dogeAPY, dogeEli: _dogeEli});
+        if (account && Staking && activeItem == -1) {
+            console.log(Staking);
+            const _dogeAPY =  await Staking.methods.DogeAPY().call();
+            const _dogeEli = await Staking.methods.DogeElig().call();
+            const _dogePen = await Staking.methods.DogePenalty().call();
+            const _loriaAPY = await Staking.methods.LoriaAPY().call();
+            const _loriaEli = await Staking.methods.LoriaElig().call();
+            const _loriaPen = await Staking.methods.LoriaPenalty().call();
+
+            setInitData({
+                ...initData,
+                dogeAPY: _dogeAPY,
+                dogeEli: _dogeEli,
+                dogePen: _dogePen,
+                loriaEli: _loriaEli,
+                loriaAPY: _loriaAPY,
+                loriaPen: _loriaPen
+            });
+            
             setDogeAPY(_dogeAPY);
             setDogeEli(_dogeEli);
+            setDogePenalty(_dogePen);
             setLoriaAPY(_loriaAPY);
             setLoriaEli(_loriaEli);
+            setLoriaPenalty(_loriaPen);
         }
-    }, [account]);
+    }, [account, activeItem]);
 
     const changeItem = async() => {
         try {
@@ -66,10 +84,20 @@ export default function AdminDashboard() {
                     NotificationManager.success(':D', 'Success');
                     break;
                 case "3":
+                    alert();
                     await Staking.methods.setLoriaElig(LoriaEli).send({ from: account });
                     NotificationManager.success(':D', 'Success');
                     break;
+                case "4":
+                    await Staking.methods.setDogePenalty(DogePen).send({ from: account });
+                    NotificationManager.success(':D', 'Success');
+                    break;
+                case "5":
+                    await Staking.methods.setLoriaPenalty(LoriaPen).send({ from: account });
+                    NotificationManager.success(':D', 'Success');
+                    break;
             }
+            window.$('#amendPopup').modal('hide');
             setActiveItem(-1);
             setIsLoading(false);
         } catch(err) {
@@ -79,7 +107,6 @@ export default function AdminDashboard() {
         }
     }
 
-    console.log(isLoading);
     return (
         <React.Fragment>
             { isLoading && <Loading/> }
@@ -88,78 +115,112 @@ export default function AdminDashboard() {
                 <div className="container-lg">
                     <div className="row d-flex justify-content-center">
                         <div className="admin-dashboard-bg">
-                        <div className="col-sm-12 admin-dashboard-page">
-                            <div className="col-lg-4 col-sm-12 border-bottom d-flex justify-content-between ">
-                                <span><small>MsDoge APY (%)</small></span>
-                                <input type="number" value={DogeAPY} onChange={ (e) => account && setDogeAPY(e.target.value) } className="admin-dashboard-input" />
+                            <div className="col-sm-12 admin-dashboard-page">
+                                <div className="col-lg-4 col-sm-12 border-bottom d-flex justify-content-between ">
+                                    <span><small>MsDoge APY (%)</small></span>
+                                    <input type="number" value={DogeAPY} onChange={ (e) => account && setDogeAPY(e.target.value) } className="admin-dashboard-input" />
+                                </div>
+                                {
+                                    initData.dogeAPY != DogeAPY && DogeAPY > 0 ?
+                                        <button
+                                            type="button"
+                                            className="table-btn-dashborad active"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#amendPopup"
+                                            onClick={() => setActiveItem(0)}
+                                        >Amend</button>
+                                    : <button type="button" className="table-btn-dashborad">Amend</button>
+                                }
+                                
                             </div>
-                            {
-                                initData.dogeAPY != DogeAPY && DogeAPY > 0 ?
-                                    <button
-                                        type="button"
-                                        className="table-btn-dashborad active"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#amendPopup"
-                                        onClick={() => setActiveItem(0)}
-                                    >Amend</button>
-                                : <button type="button" className="table-btn-dashborad">Amend</button>
-                            }
-                            
-                        </div>
                         
-                        <div className="col-sm-12 admin-dashboard-page">
-                            <div className="col-lg-4 col-sm-12 border-bottom d-flex justify-content-between ">
-                                <span><small>Cryptoloria APY (%)</small></span>
-                                <input type="number" value={LoriaAPY} onChange={(e) => account && setLoriaAPY(e.target.value)} className="admin-dashboard-input" />
-                            </div>
-                            {
-                                initData.loriaAPY != LoriaAPY && LoriaAPY > 0 ?
-                                <button
-                                    type="button"
-                                    className="table-btn-dashborad active"
-                                    data-bs-toggle="modal"
-                                    data-bs-target="#amendPopup"
-                                    onClick={() => setActiveItem(1)}
-                                >Amend</button>
-                                : <button type="button" className="table-btn-dashborad">Amend</button>
-                            }
-                        </div>
-
-                        <div className="col-sm-12 admin-dashboard-page">
-                            <div className="col-lg-4 col-sm-12 border-bottom d-flex justify-content-between ">
-                                <span><small>MSDOGE Staking Eligibility (Days)</small></span>
-                                <input type="number" value={DogeEli} onChange={(e) => account && setDogeEli(e.target.value) } className="admin-dashboard-input" />
-                            </div>
-                            {
-                                initData.dogeEli != DogeEli && DogeEli > 0 ?
+                            <div className="col-sm-12 admin-dashboard-page">
+                                <div className="col-lg-4 col-sm-12 border-bottom d-flex justify-content-between ">
+                                    <span><small>Cryptoloria APY (%)</small></span>
+                                    <input type="number" value={LoriaAPY} onChange={(e) => account && setLoriaAPY(e.target.value)} className="admin-dashboard-input" />
+                                </div>
+                                {
+                                    initData.loriaAPY != LoriaAPY && LoriaAPY > 0 ?
                                     <button
                                         type="button"
                                         className="table-btn-dashborad active"
                                         data-bs-toggle="modal"
                                         data-bs-target="#amendPopup"
-                                        onClick={() => setActiveItem(2)}
+                                        onClick={() => setActiveItem(1)}
                                     >Amend</button>
-                                : <button type="button" className="table-btn-dashborad">Amend</button>
-                            }
-                        </div>
-
-                        <div className="col-sm-12 admin-dashboard-page">
-                            <div className="col-lg-4 col-sm-12 border-bottom d-flex justify-content-between ">
-                                <span><small>LORIA Staking Eligibility (Days)</small></span>
-                                <input type="number" value={LoriaEli} onChange={(e) => account && setLoriaEli(e.target.value)} className="admin-dashboard-input" />
+                                    : <button type="button" className="table-btn-dashborad">Amend</button>
+                                }
                             </div>
-                            {
-                                initData.loriaEli != LoriaEli && LoriaEli > 0 ?
-                                    <button
-                                        type="button"
-                                        className="table-btn-dashborad active"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#amendPopup"
-                                        onClick={() => setActiveItem(3)}
-                                    >Amend</button>
-                                : <button type="button" className="table-btn-dashborad">Amend</button>
-                            }
-                        </div>
+
+                            <div className="col-sm-12 admin-dashboard-page">
+                                <div className="col-lg-4 col-sm-12 border-bottom d-flex justify-content-between ">
+                                    <span><small>MSDOGE Staking Eligibility (Days)</small></span>
+                                    <input type="number" value={DogeEli} onChange={(e) => account && setDogeEli(e.target.value) } className="admin-dashboard-input" />
+                                </div>
+                                {
+                                    initData.dogeEli != DogeEli && DogeEli > 0 ?
+                                        <button
+                                            type="button"
+                                            className="table-btn-dashborad active"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#amendPopup"
+                                            onClick={() => setActiveItem(2)}
+                                        >Amend</button>
+                                    : <button type="button" className="table-btn-dashborad">Amend</button>
+                                }
+                            </div>
+
+                            <div className="col-sm-12 admin-dashboard-page">
+                                <div className="col-lg-4 col-sm-12 border-bottom d-flex justify-content-between ">
+                                    <span><small>LORIA Staking Eligibility (Days)</small></span>
+                                    <input type="number" value={LoriaEli} onChange={(e) => account && setLoriaEli(e.target.value)} className="admin-dashboard-input" />
+                                </div>
+                                {
+                                    initData.loriaEli != LoriaEli && LoriaEli > 0 ?
+                                        <button
+                                            type="button"
+                                            className="table-btn-dashborad active"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#amendPopup"
+                                            onClick={() => setActiveItem(3)}
+                                        >Amend</button>
+                                    : <button type="button" className="table-btn-dashborad">Amend</button>
+                                }
+                            </div>
+                            <div className="col-sm-12 admin-dashboard-page">
+                                <div className="col-lg-4 col-sm-12 border-bottom d-flex justify-content-between ">
+                                    <span><small>MSDOGE Withdraw Penalty(%)</small></span>
+                                    <input type="number" value={DogePen} onChange={(e) => account && setDogePenalty(e.target.value)} className="admin-dashboard-input" />
+                                </div>
+                                {
+                                    initData.dogePen != DogePen && DogePen > 0 ?
+                                        <button
+                                            type="button"
+                                            className="table-btn-dashborad active"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#amendPopup"
+                                            onClick={() => setActiveItem(4)}
+                                        >Amend</button>
+                                    : <button type="button" className="table-btn-dashborad">Amend</button>
+                                }
+                            </div>
+                            <div className="col-sm-12 admin-dashboard-page">
+                                <div className="col-lg-4 col-sm-12 border-bottom d-flex justify-content-between ">
+                                    <span><small>CRYPTO Withdraw Penalty(%)</small></span>
+                                    <input type="number" value={LoriaPen} onChange={(e) => account && setLoriaPenalty(e.target.value)} className="admin-dashboard-input" />
+                                </div>
+                                {
+                                    initData.loriaPen != LoriaPen && LoriaPen > 0 ?
+                                        <button
+                                            type="button"
+                                            className="table-btn-dashborad active"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#amendPopup"
+                                            onClick={() => setActiveItem(5)}
+                                        >Amend</button>
+                                    : <button type="button" className="table-btn-dashborad">Amend</button>
+                                }
+                            </div>
                         </div>
                     </div>
                 </div>
