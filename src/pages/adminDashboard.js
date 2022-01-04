@@ -172,7 +172,7 @@ const AdminDashboard = () => {
 
                             <div className="col-sm-12 admin-dashboard-page">
                                 <div className="col-lg-4 col-sm-12 border-bottom d-flex justify-content-between ">
-                                    <span><small>LORIA Staking Eligibility (Days)</small></span>
+                                    <span><small>CRYPTO Staking Eligibility (Days)</small></span>
                                     <input type="number" value={LoriaEli} onChange={(e) => account && setLoriaEli(e.target.value)} className="admin-dashboard-input" />
                                 </div>
                                 {
@@ -219,6 +219,25 @@ const AdminDashboard = () => {
                                             onClick={() => setActiveItem(5)}
                                         >Amend</button>
                                     : <button type="button" className="table-btn-dashborad">Amend</button>
+                                }
+                            </div>
+
+                            <div className="col-sm-12 admin-dashboard-page">
+                                <div className="col-lg-4 col-sm-12 border-bottom d-flex justify-content-between ">
+                                    <label htmlFor="clainListFiles" className="w-100 cursor-pointer clainListFiles"> 
+                                    {/* <span><small>Claim List</small></span>
+                                    <button type="button" className="table-btn-dashborad-files">Browse</button> */}
+                                    </label>
+                                    <input id="clainListFiles" hidden type="file" />
+                                </div>
+                                {
+                                    initData.loriaPen != LoriaPen && LoriaPen > 0 ?
+                                        <button
+                                            type="button"
+                                            className="table-btn-dashborad active"
+                                            onClick={() => setActiveItem(6)}
+                                        >Deploy</button>
+                                    : <button type="button" className="table-btn-dashborad">Deploy</button>
                                 }
                             </div>
                         </div>

@@ -1860,3 +1860,37 @@ div.acc-heading-text h2 > span {
 .color-primary{
   color: var(--primary) !important;
 }
+
+.cursor-pointer:hover{
+  cursor: pointer !important;
+}
+
+.admin-dashboard-page .clainListFiles{
+  border-radius: 7px;
+  border: solid 1px #979797;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  padding: 16px;
+}
+
+.admin-dashboard-page .clainListFiles::before{
+  content: 'Claim List';
+  position: absolute;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.admin-dashboard-page .clainListFiles::after{
+  content: 'Browse';
+  position: absolute;
+  background-color: #979797;
+  color: #fff;
+  border-radius: 7px;
+  padding: 3px 25px;
+  right: 13px;
+  font-size: 14px;
+  font-weight: bold;
+}
