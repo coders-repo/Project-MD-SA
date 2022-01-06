@@ -1877,7 +1877,7 @@ div.acc-heading-text h2 > span {
 }
 
 .admin-dashboard-page .clainListFiles::before{
-  content: 'Claim List';
+  content: 'MsDoge Claim List';
   position: absolute;
   font-size: 14px;
   font-weight: bold;
@@ -1894,3 +1894,12 @@ div.acc-heading-text h2 > span {
   font-size: 14px;
   font-weight: bold;
 }
+
+.admin-dashboard-page .clainListFiles.crypto::before{
+  content: 'Crypto Claim List';
+  position: absolute;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+

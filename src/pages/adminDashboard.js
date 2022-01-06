@@ -240,6 +240,17 @@ const AdminDashboard = () => {
                                     : <button type="button" className="table-btn-dashborad">Deploy</button>
                                 }
                             </div>
+
+                            <div className="col-sm-12 admin-dashboard-page">
+                                <div className="col-lg-4 col-sm-12 border-bottom d-flex justify-content-between ">
+                                    <label htmlFor="clainListFiles" className="w-100 cursor-pointer clainListFiles crypto"> 
+                                    {/* <span><small>Claim List</small></span>
+                                    <button type="button" className="table-btn-dashborad-files">Browse</button> */}
+                                    </label>
+                                    <input id="clainListFiles" hidden type="file" />
+                                </div>
+                                <button type="button" className="table-btn-dashborad">Deploy</button>
+                            </div>
                         </div>
                     </div>
                 </div>
