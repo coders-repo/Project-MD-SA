@@ -9,7 +9,7 @@ import NotificationManager from 'react-notifications/lib/NotificationManager';
 import config from "../config.json";
 const { StakingAddress } = config;
 
-const AdminDashboard = () => {
+export default function AdminDashboard() {
     const { account, activate } = useWeb3React();
     const [web3, setWeb3] = useState({});
     const [Staking, setStaking] = useState({});
@@ -29,6 +29,8 @@ const AdminDashboard = () => {
     const [LoriaPen, setLoriaPenalty] = useState('');
     const [activeItem, setActiveItem] = useState(-1);
     const [isLoading, setIsLoading] = useState(false);
+    const [dogeClaimList, setDogeCliamList] = useState([]);
+    const [cryptoClaimList, setCryptoCliamList] = useState([]);
 
     useEffect(async() => {
         const _web3 = await getWeb3();
@@ -39,7 +41,6 @@ const AdminDashboard = () => {
 
     useEffect(async() => {
         if (account && Staking && activeItem == -1) {
-            console.log(Staking);
             const _dogeAPY =  await Staking.methods.DogeAPY().call();
             const _dogeEli = await Staking.methods.DogeElig().call();
             const _dogePen = await Staking.methods.DogePenalty().call();
@@ -65,6 +66,55 @@ const AdminDashboard = () => {
             setLoriaPenalty(_loriaPen);
         }
     }, [account, activeItem]);
+
+    const importAirDropList = (e, type) => {
+        
+        if (!account) {
+            NotificationManager.warning("Metamask is not connected!", "Warning");
+            return;
+        }
+        const file = e.target.files[0];
+
+        
+        if (file) {
+            const reader = new FileReader();
+            reader.onloadend = function(e) {
+                const text = e.target.result;
+                processCSV(text, type)
+            }
+    
+            reader.readAsText(file);
+        }
+        
+        else {
+            switch(type) {
+                case 0:
+                    setDogeCliamList([]);
+                    break;
+                case 1:
+                    setCryptoCliamList([]);
+                    break;
+            }
+        }
+    }
+
+    const processCSV = (str, type) => {
+        const rows = str.slice(str.indexOf('\n') + 1, str.length - 1).split('\n');
+        const newArray = rows.map(row => {
+            row = row.slice(0, row.indexOf('\r'));
+            const values = row.split(',');
+            return { staker: values[0], balance: web3.utils.toWei(values[1], "ether") };
+        })
+        
+        switch(type) {
+            case 0:
+                setDogeCliamList(newArray);
+                break;
+            case 1:
+                setCryptoCliamList(newArray);
+                break;
+        }
+    }
 
     const changeItem = async() => {
         try {
@@ -105,6 +155,21 @@ const AdminDashboard = () => {
             NotificationManager.error(';S', 'Failed');
             setIsLoading(false);
         }
+    }
+    
+    const optionalClaim = async(type) => {
+        setIsLoading(true);
+        let claimList = [];
+        if (!type) claimList = dogeClaimList;
+        else claimList = cryptoClaimList;
+        
+        try {
+            await Staking.methods.optionalClaim(claimList, type).send({ from: account });
+            NotificationManager.success(':D', 'Success');
+        } catch(err) {
+            NotificationManager.error(':(', 'Failed');
+        }
+        setIsLoading(false);
     }
 
     return (
@@ -172,7 +237,7 @@ const AdminDashboard = () => {
 
                             <div className="col-sm-12 admin-dashboard-page">
                                 <div className="col-lg-4 col-sm-12 border-bottom d-flex justify-content-between ">
-                                    <span><small>CRYPTO Staking Eligibility (Days)</small></span>
+                                    <span><small>LORIA Staking Eligibility (Days)</small></span>
                                     <input type="number" value={LoriaEli} onChange={(e) => account && setLoriaEli(e.target.value)} className="admin-dashboard-input" />
                                 </div>
                                 {
@@ -221,21 +286,22 @@ const AdminDashboard = () => {
                                     : <button type="button" className="table-btn-dashborad">Amend</button>
                                 }
                             </div>
-
                             <div className="col-sm-12 admin-dashboard-page">
                                 <div className="col-lg-4 col-sm-12 border-bottom d-flex justify-content-between ">
-                                    <label htmlFor="clainListFiles" className="w-100 cursor-pointer clainListFiles"> 
-                                    {/* <span><small>Claim List</small></span>
-                                    <button type="button" className="table-btn-dashborad-files">Browse</button> */}
-                                    </label>
-                                    <input id="clainListFiles" hidden type="file" />
+                                    <label htmlFor="clainListFiles" className="w-100 cursor-pointer clainListFiles" onClick={(e) => !account ?  e.preventDefault() : null}></label>
+                                    <input
+                                        id="clainListFiles"
+                                        hidden
+                                        type="file"
+                                        onChange={(e) => importAirDropList(e, 0)}
+                                    />
                                 </div>
                                 {
-                                    initData.loriaPen != LoriaPen && LoriaPen > 0 ?
+                                    dogeClaimList.length > 0 ?
                                         <button
                                             type="button"
                                             className="table-btn-dashborad active"
-                                            onClick={() => setActiveItem(6)}
+                                            onClick={() => optionalClaim(0)}
                                         >Deploy</button>
                                     : <button type="button" className="table-btn-dashborad">Deploy</button>
                                 }
@@ -243,13 +309,23 @@ const AdminDashboard = () => {
 
                             <div className="col-sm-12 admin-dashboard-page">
                                 <div className="col-lg-4 col-sm-12 border-bottom d-flex justify-content-between ">
-                                    <label htmlFor="clainListFiles" className="w-100 cursor-pointer clainListFiles crypto"> 
-                                    {/* <span><small>Claim List</small></span>
-                                    <button type="button" className="table-btn-dashborad-files">Browse</button> */}
-                                    </label>
-                                    <input id="clainListFiles" hidden type="file" />
+                                    <label htmlFor="clainListFiles" className="w-100 cursor-pointer clainListFiles crypto" onClick={(e) => !account ?  e.preventDefault() : null}></label>
+                                    <input
+                                        id="clainListFiles"
+                                        hidden
+                                        type="file"
+                                        onChange={(e) => importAirDropList(e, 1)}
+                                    />
                                 </div>
-                                <button type="button" className="table-btn-dashborad">Deploy</button>
+                                {
+                                    cryptoClaimList.length > 0 ?
+                                        <button
+                                            type="button"
+                                            className="table-btn-dashborad active"
+                                            onClick={() => optionalClaim(1)}
+                                        >Deploy</button>
+                                    : <button type="button" className="table-btn-dashborad">Deploy</button>
+                                }
                             </div>
                         </div>
                     </div>
@@ -303,5 +379,3 @@ const AdminDashboard = () => {
         </React.Fragment>
     )
 }
-
-export default AdminDashboard;
