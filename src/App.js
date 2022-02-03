@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 import { Web3ReactProvider } from "@web3-react/core"
 import Web3Provider from "web3"
-import AdminDashboard from './pages/AdminDashboard.js';
+import AdminDashboard from './pages/adminDashboard.js';
 
 function getLibrary(provider, connector) {
   return new Web3Provider(provider) // this will vary according to whether you use e.g. ethers or web3.js
