@@ -219,7 +219,7 @@ let AdminDashboard = () => {
 
                             <div className="col-sm-12 admin-dashboard-page">
                                 <div className="col-lg-4 col-sm-12 border-bottom d-flex justify-content-between ">
-                                    <span><small>MSDOGE Staking Eligibility (Days)</small></span>
+                                    <span><small>MSDOGE Withdraw Penalty</small></span>
                                     <input type="number" value={DogeEli} onChange={(e) => account && setDogeEli(e.target.value) } className="admin-dashboard-input" />
                                 </div>
                                 {
@@ -237,7 +237,7 @@ let AdminDashboard = () => {
 
                             <div className="col-sm-12 admin-dashboard-page">
                                 <div className="col-lg-4 col-sm-12 border-bottom d-flex justify-content-between ">
-                                    <span><small>LORIA Staking Eligibility (Days)</small></span>
+                                    <span><small>CRYPTO Withdraw Penalty</small></span>
                                     <input type="number" value={LoriaEli} onChange={(e) => account && setLoriaEli(e.target.value)} className="admin-dashboard-input" />
                                 </div>
                                 {

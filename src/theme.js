@@ -13,7 +13,8 @@ export const lightTheme = {
     filter: 'invert(0)',
     red:'#e24c4b',
     black: '#000',
-    gray: "#F7F7F7"
+    gray: "#F7F7F7",
+    blackPrimary: "#000"
 
 }
 export const darkTheme = {
@@ -26,7 +27,8 @@ export const darkTheme = {
     filter: 'invert(1)',
     red:'#e24c4b',
     black: '#fff',
-    gray: "#454343"
+    gray: "#454343",
+    blackPrimary: "#f6ce0e"
 }
 export const GlobalStyles = createGlobalStyle`
 body{
@@ -39,7 +41,7 @@ body{
 }
 
 #F7CE0E;
-.Play-Game ul li::before, .admin-dashboard-bg, .admin-dashboard-page .clainListFiles {
+.Play-Game ul li::before, .admin-dashboard-page .clainListFiles {
   background: ${props => props.theme.backgroundColor};
 }
 .download-badge label, .Play-Game ul li, a, .nav-link, .stake-list-sel select, .popup-card-container, .popup-card-container svg, .popup-card-container svg path, .hero-text-box h1, .hero-text-box p, .main-heading-center h2, .cat-left-text h3, .cat-left-text p, .text-block-heading h3, .text-block-heading p, .icon-text-block-cri h4, .icon-text-block-cri p, .number-text-box h4, .number-text-box p, .aud-white-box p, .aud-white-box h5, .next-ele li h3, .trust-line-textbox h2, .trust-line-textbox p, .review-box h5, .text-block-heading h5, .sm-text h5, .sm-text p, .ft-nav li, .ft-nav li a, .heading-text-stake h2, .fliter-box h5 b, .fliter-box h5, .heading-text-stake p, .text-person h3, .accordion-button.collapsed, .dots svg {
@@ -50,6 +52,20 @@ body{
     background-color: ${props => props.theme.backgroundColor};
     border-color: ${props => props.theme.backgroundColor};
   }
+
+  .admin-dashboard-bg{
+    background-color: ${props => props.theme.gray};
+  }
+
+  .admin-dashboard-page small{
+    color: ${props => props.theme.text};
+  }
+
+  .wallet_connected p{
+    border-color: ${props => props.theme.blackPrimary};
+    color: ${props => props.theme.blackPrimary};
+  }
+
   .moon-icon{
     background-image: ${props => props.theme.backgroundImage};
     background-repeat: no-repeat;
