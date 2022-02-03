@@ -4,8 +4,6 @@ import './style.scss';
 import close from '../../assets/images/close.png';
 
 const Modal = ({ ModalTitle, children, Modalclass, onClose, className, ...attrs }) => {
-  
-
   return (
 	<div className={`modal-box hasmodal ${Modalclass}`}>
 		<div className="modal-main">
