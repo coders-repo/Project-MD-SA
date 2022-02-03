@@ -9,7 +9,7 @@ import NotificationManager from 'react-notifications/lib/NotificationManager';
 import config from "../config.json";
 const { StakingAddress } = config;
 
-export default function AdminDashboard() {
+let AdminDashboard = () => {
     const { account, activate } = useWeb3React();
     const [web3, setWeb3] = useState({});
     const [Staking, setStaking] = useState({});
@@ -379,3 +379,5 @@ export default function AdminDashboard() {
         </React.Fragment>
     )
 }
+
+export default AdminDashboard;

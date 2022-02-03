@@ -1,7 +1,7 @@
 
 import React from "react";
 import './App.css';
-import AdminDashboard from './pages/AdminDashboard';
+import AdminDashboard from './pages/AdminDashboard.js';
 import { NotificationContainer } from "react-notifications";
 import {
   BrowserRouter as Router, Switch,Route,} from "react-router-dom";
