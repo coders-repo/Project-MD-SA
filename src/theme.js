@@ -57,7 +57,7 @@ body{
     background-color: ${props => props.theme.gray};
   }
 
-  .admin-dashboard-page small{
+  .admin-dashboard-page small, .admin-dashboard-page .clainListFiles::before{
     color: ${props => props.theme.text};
   }
 
