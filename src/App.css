@@ -1914,7 +1914,7 @@ div.acc-heading-text h2 > span {
 
 .transparent-accordion-button:not(.collapsed)::after {
 	outline: none;
-	background-image: url("./assets/images/tp-accordion-down.jpg");
+	background-image: url("./assets/images/tp-accordion-up.jpg");
 }
 
 .transparent-accordion-button::after {
