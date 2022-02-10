@@ -5,9 +5,15 @@ const Box = ({
 	account,
 	initData,
 	setActiveItem,
-	coin,
-	setCoin,
-	initDataKey,
+	apy,
+	setAPY,
+	eli,
+	setEli,
+	pen,
+	setPen,
+	initDataKeyAPY,
+	initDataKeyEli,
+	initDataKeyPen,
 }) => {
 	return (
 		<div className="col-md-12 col-lg-6 col-sm-12 admin-dashboard-page">
@@ -28,18 +34,18 @@ const Box = ({
 						</span>
 						<input
 							type="number"
-							value={coin}
-							onChange={(e) => account && setCoin(e.target.value)}
+							value={apy}
+							onChange={(e) => account && setAPY(e.target.value)}
 							className="admin-dashboard-input"
 						/>
 					</div>
-					{initData[initDataKey] != coin && coin > 0 ? (
+					{initData[initDataKeyAPY] != apy && apy > 0 ? (
 						<button
 							type="button"
 							className="table-btn-dashborad active"
 							data-bs-toggle="modal"
 							data-bs-target="#amendPopup"
-							onClick={() => setActiveItem(0)}
+							onClick={() => setActiveItem(initDataKeyAPY)}
 						>
 							Amend
 						</button>
@@ -57,18 +63,18 @@ const Box = ({
 						</span>
 						<input
 							type="number"
-							value={coin}
-							onChange={(e) => account && setCoin(e.target.value)}
+							value={eli}
+							onChange={(e) => account && setEli(e.target.value)}
 							className="admin-dashboard-input"
 						/>
 					</div>
-					{initData[initDataKey] != coin && coin > 0 ? (
+					{initData[initDataKeyEli] != eli && eli > 0 ? (
 						<button
 							type="button"
 							className="table-btn-dashborad active"
 							data-bs-toggle="modal"
 							data-bs-target="#amendPopup"
-							onClick={() => setActiveItem(0)}
+							onClick={() => setActiveItem(initDataKeyEli)}
 						>
 							Amend
 						</button>
@@ -86,18 +92,18 @@ const Box = ({
 						</span>
 						<input
 							type="number"
-							value={coin}
-							onChange={(e) => account && setCoin(e.target.value)}
+							value={pen}
+							onChange={(e) => account && setPen(e.target.value)}
 							className="admin-dashboard-input"
 						/>
 					</div>
-					{initData[initDataKey] != coin && coin > 0 ? (
+					{initData[initDataKeyPen] != pen && pen > 0 ? (
 						<button
 							type="button"
 							className="table-btn-dashborad active y-button"
 							data-bs-toggle="modal"
 							data-bs-target="#amendPopup"
-							onClick={() => setActiveItem(0)}
+							onClick={() => setActiveItem(initDataKeyPen)}
 						>
 							Amend
 						</button>
