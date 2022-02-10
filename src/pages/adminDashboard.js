@@ -18,56 +18,789 @@ let AdminDashboard = () => {
 	const [Staking, setStaking] = useState({});
 	const [initData, setInitData] = useState({
 		dogeAPY: "",
-		loriaAPY: "",
 		dogeEli: "",
-		loriaEli: "",
 		dogePen: "",
+
+		loriaAPY: "",
+		loriaEli: "",
 		loriaPen: "",
+
+		paraDAIAPY: "",
+		paraDAIEli: "",
+		paraDAIPen: "",
+
+		paraUSDTAPY: "",
+		paraUSDTEli: "",
+		paraUSDTPen: "",
+
+		paraUSDCAPY: "",
+		paraUSDCEli: "",
+		paraUSDCPen: "",
+
+		paraPAXAPY: "",
+		paraPAXEli: "",
+		paraPAXPen: "",
+
+		paraTUSDAPY: "",
+		paraTUSDEli: "",
+		paraTUSDPen: "",
+
+		paraUSDPAPY: "",
+		paraUSDPEli: "",
+		paraUSDPPen: "",
+
+		alphaELONAPY: "",
+		alphaELONEli: "",
+		alphaELONPen: "",
+
+		alphaSHIBAPY: "",
+		alphaSHIBEli: "",
+		alphaSHIBPen: "",
+
+		alphaMSDOGEAPY: "",
+		alphaMSDOGEEli: "",
+		alphaMSDOGEPen: "",
+
+		alphaHOGEAPY: "",
+		alphaHOGEEli: "",
+		alphaHOGEPen: "",
+
+		alphaSMIAPY: "",
+		alphaSMIEli: "",
+		alphaSMIPen: "",
+
+		alphaSUSHIAPY: "",
+		alphaSUSHIEli: "",
+		alphaSUSHIPen: "",
+
+		omegaCRVAPY: "",
+		omegaCRVEli: "",
+		omegaCRVPen: "",
+
+		omegaKNCAPY: "",
+		omegaKNCEli: "",
+		omegaKNCPen: "",
+
+		omegaZRXAPY: "",
+		omegaZRXEli: "",
+		omegaZRXPen: "",
+
+		omegaBNTAPY: "",
+		omegaBNTEli: "",
+		omegaBNTPen: "",
+
+		omegaUNIAPY: "",
+		omegaUNIEli: "",
+		omegaUNIPen: "",
+
+		omegaMKRAPY: "",
+		omegaMKREli: "",
+		omegaMKRPen: "",
+
+		eusdAAVEAPY: "",
+		eusdAAVEEli: "",
+		eusdAAVEPen: "",
+
+		eusdCOMPAPY: "",
+		eusdCOMPEli: "",
+		eusdCOMPPen: "",
+
+		eusdWBTCAPY: "",
+		eusdWBTCEli: "",
+		eusdWBTCPen: "",
+
+		eusdWETHAPY: "",
+		eusdWETHEli: "",
+		eusdWETHPen: "",
+
+		eusdOHMAPY: "",
+		eusdOHMEli: "",
+		eusdOHMPen: "",
+
+		eusdCVXAPY: "",
+		eusdCVXEli: "",
+		eusdCVXPen: "",
+
+		msdogeWETHAPY: "",
+		msdogeWETHEli: "",
+		msdogeWETHPen: "",
+
+		msdogeDAIAPY: "",
+		msdogeDAIEli: "",
+		msdogeDAIPen: "",
+
+		msdogeUSDCAPY: "",
+		msdogeUSDCEli: "",
+		msdogeUSDCPen: "",
+
+		msdogeFRAXAPY: "",
+		msdogeFRAXEli: "",
+		msdogeFRAXPen: "",
+
+		msdogeSHIBAPY: "",
+		msdogeSHIBEli: "",
+		msdogeSHIBPen: "",
+
+		msdogeCVXAPY: "",
+		msdogeCVXEli: "",
+		msdogeCVXPen: "",
+
+		cryptoAAVEAPY: "",
+		cryptoAAVEEli: "",
+		cryptoAAVEPen: "",
+
+		cryptoUSDTAPY: "",
+		cryptoUSDTEli: "",
+		cryptoUSDTPen: "",
+
+		cryptoTUSDAPY: "",
+		cryptoTUSDEli: "",
+		cryptoTUSDPen: "",
+
+		cryptoETHAPY: "",
+		cryptoETHEli: "",
+		cryptoETHPen: "",
+
+		cryptoGUSDAPY: "",
+		cryptoGUSDEli: "",
+		cryptoGUSDPen: "",
+
+		cryptoPAXAPY: "",
+		cryptoPAXEli: "",
+		cryptoPAXPen: "",
 	});
 	const [DogeAPY, setDogeAPY] = useState("");
-	const [LoriaAPY, setLoriaAPY] = useState("");
 	const [DogeEli, setDogeEli] = useState("");
-	const [LoriaEli, setLoriaEli] = useState("");
 	const [DogePen, setDogePenalty] = useState("");
+
+	const [LoriaAPY, setLoriaAPY] = useState("");
+	const [LoriaEli, setLoriaEli] = useState("");
 	const [LoriaPen, setLoriaPenalty] = useState("");
+
+	const [ParaDAIAPY, setParaDAIAPY] = useState("");
+	const [ParaDAIEli, setParaDAIEli] = useState("");
+	const [ParaDAIPen, setParaDAIPen] = useState("");
+
+	const [ParaUSDTAPY, setParaUSDTAPY] = useState("");
+	const [ParaUSDTEli, setParaUSDTEli] = useState("");
+	const [ParaUSDTPen, setParaUSDTPen] = useState("");
+
+	const [ParaUSDCAPY, setParaUSDCAPY] = useState("");
+	const [ParaUSDCEli, setParaUSDCEli] = useState("");
+	const [ParaUSDCPen, setParaUSDCPen] = useState("");
+
+	const [ParaPAXAPY, setParaPAXAPY] = useState("");
+	const [ParaPAXEli, setParaPAXEli] = useState("");
+	const [ParaPAXPen, setParaPAXPen] = useState("");
+
+	const [ParaTUSDAPY, setParaTUSDAPY] = useState("");
+	const [ParaTUSDEli, setParaTUSDEli] = useState("");
+	const [ParaTUSDPen, setParaTUSDPen] = useState("");
+
+	const [ParaUSDPAPY, setParaUSDPAPY] = useState("");
+	const [ParaUSDPEli, setParaUSDPEli] = useState("");
+	const [ParaUSDPPen, setParaUSDPPen] = useState("");
+
+	const [AlphaELONAPY, setAlphaELONAPY] = useState("");
+	const [AlphaELONEli, setAlphaELONEli] = useState("");
+	const [AlphaELONPen, setAlphaELONPen] = useState("");
+
+	const [AlphaSHIBAPY, setAlphaSHIBAPY] = useState("");
+	const [AlphaSHIBEli, setAlphaSHIBEli] = useState("");
+	const [AlphaSHIBPen, setAlphaSHIBPen] = useState("");
+
+	const [AlphaMSDOGEAPY, setAlphaMSDOGEAPY] = useState("");
+	const [AlphaMSDOGEEli, setAlphaMSDOGEEli] = useState("");
+	const [AlphaMSDOGEPen, setAlphaMSDOGEPen] = useState("");
+
+	const [AlphaHOGEAPY, setAlphaHOGEAPY] = useState("");
+	const [AlphaHOGEEli, setAlphaHOGEEli] = useState("");
+	const [AlphaHOGEPen, setAlphaHOGEPen] = useState("");
+
+	const [AlphaSMIAPY, setAlphaSMIAPY] = useState("");
+	const [AlphaSMIEli, setAlphaSMIEli] = useState("");
+	const [AlphaSMIPen, setAlphaSMIPen] = useState("");
+
+	const [AlphaSUSHIAPY, setAlphaSUSHIAPY] = useState("");
+	const [AlphaSUSHIEli, setAlphaSUSHIEli] = useState("");
+	const [AlphaSUSHIPen, setAlphaSUSHIPen] = useState("");
+
+	const [OmegaCRVAPY, setOmegaCRVAPY] = useState("");
+	const [OmegaCRVEli, setOmegaCRVEli] = useState("");
+	const [OmegaCRVPen, setOmegaCRVPen] = useState("");
+
+	const [OmegaKNCAPY, setOmegaKNCAPY] = useState("");
+	const [OmegaKNCEli, setOmegaKNCEli] = useState("");
+	const [OmegaKNCPen, setOmegaKNCPen] = useState("");
+
+	const [OmegaZRXAPY, setOmegaZRXAPY] = useState("");
+	const [OmegaZRXEli, setOmegaZRXEli] = useState("");
+	const [OmegaZRXPen, setOmegaZRXPen] = useState("");
+
+	const [OmegaBNTAPY, setOmegaBNTAPY] = useState("");
+	const [OmegaBNTEli, setOmegaBNTEli] = useState("");
+	const [OmegaBNTPen, setOmegaBNTPen] = useState("");
+
+	const [OmegaUNIAPY, setOmegaUNIAPY] = useState("");
+	const [OmegaUNIEli, setOmegaUNIEli] = useState("");
+	const [OmegaUNIPen, setOmegaUNIPen] = useState("");
+
+	const [OmegaMKRAPY, setOmegaMKRAPY] = useState("");
+	const [OmegaMKREli, setOmegaMKREli] = useState("");
+	const [OmegaMKRPen, setOmegaMKRPen] = useState("");
+
+	const [eUSDAAVEAPY, seteUSDAAVEAPY] = useState("");
+	const [eUSDAAVEEli, seteUSDAAVEEli] = useState("");
+	const [eUSDAAVEPen, seteUSDAAVEPen] = useState("");
+
+	const [eUSDCOMPAPY, seteUSDCOMPAPY] = useState("");
+	const [eUSDCOMPEli, seteUSDCOMPEli] = useState("");
+	const [eUSDCOMPPen, seteUSDCOMPPen] = useState("");
+
+	const [eUSDWBTCAPY, seteUSDWBTCAPY] = useState("");
+	const [eUSDWBTCEli, seteUSDWBTCEli] = useState("");
+	const [eUSDWBTCPen, seteUSDWBTCPen] = useState("");
+
+	const [eUSDWETHAPY, seteUSDWETHAPY] = useState("");
+	const [eUSDWETHEli, seteUSDWETHEli] = useState("");
+	const [eUSDWETHPen, seteUSDWETHPen] = useState("");
+
+	const [eUSDOHMAPY, seteUSDOHMAPY] = useState("");
+	const [eUSDOHMEli, seteUSDOHMEli] = useState("");
+	const [eUSDOHMPen, seteUSDOHMPen] = useState("");
+
+	const [eUSDCVXAPY, seteUSDCVXAPY] = useState("");
+	const [eUSDCVXEli, seteUSDCVXEli] = useState("");
+	const [eUSDCVXPen, seteUSDCVXPen] = useState("");
+
+	const [MSDogeWETHAPY, setMSDogeWETHAPY] = useState("");
+	const [MSDogeWETHEli, setMSDogeWETHEli] = useState("");
+	const [MSDogeWETHPen, setMSDogeWETHPen] = useState("");
+
+	const [MSDogeDAIAPY, setMSDogeDAIAPY] = useState("");
+	const [MSDogeDAIEli, setMSDogeDAIEli] = useState("");
+	const [MSDogeDAIPen, setMSDogeDAIPen] = useState("");
+
+	const [MSDogeUSDCAPY, setMSDogeUSDCAPY] = useState("");
+	const [MSDogeUSDCEli, setMSDogeUSDCEli] = useState("");
+	const [MSDogeUSDCPen, setMSDogeUSDCPen] = useState("");
+
+	const [MSDogeFRAXAPY, setMSDogeFRAXAPY] = useState("");
+	const [MSDogeFRAXEli, setMSDogeFRAXEli] = useState("");
+	const [MSDogeFRAXPen, setMSDogeFRAXPen] = useState("");
+
+	const [MSDogeSHIBAPY, setMSDogeSHIBAPY] = useState("");
+	const [MSDogeSHIBEli, setMSDogeSHIBEli] = useState("");
+	const [MSDogeSHIBPen, setMSDogeSHIBPen] = useState("");
+
+	const [MSDogeCVXAPY, setMSDogeCVXAPY] = useState("");
+	const [MSDogeCVXEli, setMSDogeCVXEli] = useState("");
+	const [MSDogeCVXPen, setMSDogeCVXPen] = useState("");
+
+	const [CryptoAAVEAPY, setCryptoAAVEAPY] = useState("");
+	const [CryptoAAVEEli, setCryptoAAVEEli] = useState("");
+	const [CryptoAAVEPen, setCryptoAAVEPen] = useState("");
+
+	const [CryptoUSDTAPY, setCryptoUSDTAPY] = useState("");
+	const [CryptoUSDTEli, setCryptoUSDTEli] = useState("");
+	const [CryptoUSDTPen, setCryptoUSDTPen] = useState("");
+
+	const [CryptoTUSDAPY, setCryptoTUSDAPY] = useState("");
+	const [CryptoTUSDEli, setCryptoTUSDEli] = useState("");
+	const [CryptoTUSDPen, setCryptoTUSDPen] = useState("");
+
+	const [CryptoETHAPY, setCryptoETHAPY] = useState("");
+	const [CryptoETHEli, setCryptoETHEli] = useState("");
+	const [CryptoETHPen, setCryptoETHPen] = useState("");
+
+	const [CryptoGUSDAPY, setCryptoGUSDAPY] = useState("");
+	const [CryptoGUSDEli, setCryptoGUSDEli] = useState("");
+	const [CryptoGUSDPen, setCryptoGUSDPen] = useState("");
+
+	const [CryptoPAXAPY, setCryptoPAXAPY] = useState("");
+	const [CryptoPAXEli, setCryptoPAXEli] = useState("");
+	const [CryptoPAXPen, setCryptoPAXPen] = useState("");
+
 	const [activeItem, setActiveItem] = useState(-1);
 	const [isLoading, setIsLoading] = useState(false);
 	const [dogeClaimList, setDogeCliamList] = useState([]);
 	const [cryptoClaimList, setCryptoCliamList] = useState([]);
 
-	useEffect(async () => {
-		const _web3 = await getWeb3();
-		const _Staking = new _web3.eth.Contract(StakingABI, StakingAddress);
-		setWeb3(_web3);
-		setStaking(_Staking);
+	useEffect(() => {
+		const connectWeb3 = async () => {
+			const _web3 = await getWeb3();
+			const _Staking = new _web3.eth.Contract(StakingABI, StakingAddress);
+			setWeb3(_web3);
+			setStaking(_Staking);
+		};
+
+		connectWeb3();
 	}, []);
 
-	useEffect(async () => {
-		if (account && Staking && activeItem == -1) {
-			const _dogeAPY = await Staking.methods.DogeAPY().call();
-			const _dogeEli = await Staking.methods.DogeElig().call();
-			const _dogePen = await Staking.methods.DogePenalty().call();
-			const _loriaAPY = await Staking.methods.LoriaAPY().call();
-			const _loriaEli = await Staking.methods.LoriaElig().call();
-			const _loriaPen = await Staking.methods.LoriaPenalty().call();
+	useEffect(() => {
+		const setData = async () => {
+			if (account && Staking && activeItem == -1) {
+				const _dogeAPY = await Staking.methods.DogeAPY().call();
+				const _dogeEli = await Staking.methods.DogeElig().call();
+				const _dogePen = await Staking.methods.DogePenalty().call();
+				const _loriaAPY = await Staking.methods.LoriaAPY().call();
+				const _loriaEli = await Staking.methods.LoriaElig().call();
+				const _loriaPen = await Staking.methods.LoriaPenalty().call();
 
-			setInitData({
-				...initData,
-				dogeAPY: _dogeAPY,
-				dogeEli: _dogeEli,
-				dogePen: _dogePen,
-				loriaEli: _loriaEli,
-				loriaAPY: _loriaAPY,
-				loriaPen: _loriaPen,
-			});
+				const _paraDAIAPY = await Staking.methods.ParaDAIAPY().call();
+				const _paraDAIEli = await Staking.methods.ParaDAIElig().call();
+				const _paraDAIPen = await Staking.methods.ParaDAIPen().call();
 
-			setDogeAPY(_dogeAPY);
-			setDogeEli(_dogeEli);
-			setDogePenalty(_dogePen);
-			setLoriaAPY(_loriaAPY);
-			setLoriaEli(_loriaEli);
-			setLoriaPenalty(_loriaPen);
-		}
+				const _paraUSDTAPY = await Staking.methods.ParaUSDTAPY().call();
+				const _paraUSDTEli = await Staking.methods.ParaUSDTElig().call();
+				const _paraUSDTPen = await Staking.methods.ParaUSDTPen().call();
+
+				const _paraUSDCAPY = await Staking.methods.ParaUSDCAPY().call();
+				const _paraUSDCEli = await Staking.methods.ParaUSDCElig().call();
+				const _paraUSDCPen = await Staking.methods.ParaUSDCPen().call();
+
+				const _paraPAXAPY = await Staking.methods.ParaPAXAPY().call();
+				const _paraPAXEli = await Staking.methods.ParaPAXElig().call();
+				const _paraPAXPen = await Staking.methods.ParaPAXPen().call();
+
+				const _paraTUSDAPY = await Staking.methods.ParaTUSDAPY().call();
+				const _paraTUSDEli = await Staking.methods.ParaTUSDElig().call();
+				const _paraTUSDPen = await Staking.methods.ParaTUSDPen().call();
+
+				const _paraUSDPAPY = await Staking.methods.ParaUSDPAPY().call();
+				const _paraUSDPEli = await Staking.methods.ParaUSDPElig().call();
+				const _paraUSDPPen = await Staking.methods.ParaUSDPPen().call();
+
+				const _alphaELONAPY = await Staking.methods.AlphaELONAPY().call();
+				const _alphaELONEli = await Staking.methods.AlphaELONElig().call();
+				const _alphaELONPen = await Staking.methods.AlphaELONPen().call();
+
+				const _alphaSHIBAPY = await Staking.methods.AlphaSHIBAPY().call();
+				const _alphaSHIBEli = await Staking.methods.AlphaSHIBElig().call();
+				const _alphaSHIBPen = await Staking.methods.AlphaSHIBPen().call();
+
+				const _alphaMSDOGEAPY = await Staking.methods.AlphaMSDOGEAPY().call();
+				const _alphaMSDOGEEli = await Staking.methods.AlphaMSDOGEElig().call();
+				const _alphaMSDOGEPen = await Staking.methods.AlphaMSDOGEPen().call();
+
+				const _alphaHOGEAPY = await Staking.methods.AlphaHOGEAPY().call();
+				const _alphaHOGEEli = await Staking.methods.AlphaHOGEElig().call();
+				const _alphaHOGEPen = await Staking.methods.AlphaHOGEPen().call();
+
+				const _alphaSMIAPY = await Staking.methods.AlphaSMIAPY().call();
+				const _alphaSMIEli = await Staking.methods.AlphaSMIElig().call();
+				const _alphaSMIPen = await Staking.methods.AlphaSMIPen().call();
+
+				const _alphaSUSHIAPY = await Staking.methods.AlphaSUSHIAPY().call();
+				const _alphaSUSHIEli = await Staking.methods.AlphaSUSHIElig().call();
+				const _alphaSUSHIPen = await Staking.methods.AlphaSUSHIPen().call();
+
+				const _omegaCRVAPY = await Staking.methods.OmegaCRVAPY().call();
+				const _omegaCRVEli = await Staking.methods.OmegaCRVElig().call();
+				const _omegaCRVPen = await Staking.methods.OmegaCRVPen().call();
+
+				const _omegaKNCAPY = await Staking.methods.OmegaKNCAPY().call();
+				const _omegaKNCEli = await Staking.methods.OmegaKNCElig().call();
+				const _omegaKNCPen = await Staking.methods.OmegaKNCPen().call();
+
+				const _omegaZRXAPY = await Staking.methods.OmegaZRXAPY().call();
+				const _omegaZRXEli = await Staking.methods.OmegaZRXElig().call();
+				const _omegaZRXPen = await Staking.methods.OmegaZRXPen().call();
+
+				const _omegaBNTAPY = await Staking.methods.OmegaBNTAPY().call();
+				const _omegaBNTEli = await Staking.methods.OmegaBNTElig().call();
+				const _omegaBNTPen = await Staking.methods.OmegaBNTPen().call();
+
+				const _omegaUNIAPY = await Staking.methods.OmegaUNIAPY().call();
+				const _omegaUNIEli = await Staking.methods.OmegaUNIElig().call();
+				const _omegaUNIPen = await Staking.methods.OmegaUNIPen().call();
+
+				const _omegaMKRAPY = await Staking.methods.OmegaMKRAPY().call();
+				const _omegaMKREli = await Staking.methods.OmegaMKRElig().call();
+				const _omegaMKRPen = await Staking.methods.OmegaMKRPen().call();
+
+				const _eusdAAVEAPY = await Staking.methods.eUSDAAVEAPY().call();
+				const _eusdAAVEEli = await Staking.methods.eUSDAAVEElig().call();
+				const _eusdAAVEPen = await Staking.methods.eUSDAAVEPen().call();
+
+				const _eusdCOMPAPY = await Staking.methods.eUSDCOMPAPY().call();
+				const _eusdCOMPEli = await Staking.methods.eUSDCOMPElig().call();
+				const _eusdCOMPPen = await Staking.methods.eUSDCOMPPen().call();
+
+				const _eusdWBTCAPY = await Staking.methods.eUSDWBTCAPY().call();
+				const _eusdWBTCEli = await Staking.methods.eUSDWBTCElig().call();
+				const _eusdWBTCPen = await Staking.methods.eUSDWBTCPen().call();
+
+				const _eusdWETHAPY = await Staking.methods.eUSDWETHAPY().call();
+				const _eusdWETHEli = await Staking.methods.eUSDWETHElig().call();
+				const _eusdWETHPen = await Staking.methods.eUSDWETHPen().call();
+
+				const _eusdOHMAPY = await Staking.methods.eUSDOHMAPY().call();
+				const _eusdOHMEli = await Staking.methods.eUSDOHMElig().call();
+				const _eusdOHMPen = await Staking.methods.eUSDOHMPen().call();
+
+				const _eusdCVXAPY = await Staking.methods.eUSDCVXAPY().call();
+				const _eusdCVXEli = await Staking.methods.eUSDCVXElig().call();
+				const _eusdCVXPen = await Staking.methods.eUSDCVXPen().call();
+
+				const _msdogeWETHAPY = await Staking.methods.MSDogeWETHAPY().call();
+				const _msdogeWETHEli = await Staking.methods.MSDogeWETHElig().call();
+				const _msdogeWETHPen = await Staking.methods.MSDogeWETHPen().call();
+
+				const _msdogeDAIAPY = await Staking.methods.MSDogeDAIAPY().call();
+				const _msdogeDAIEli = await Staking.methods.MSDogeDAIElig().call();
+				const _msdogeDAIPen = await Staking.methods.MSDogeDAIPen().call();
+
+				const _msdogeUSDCAPY = await Staking.methods.MSDogeUSDCAPY().call();
+				const _msdogeUSDCEli = await Staking.methods.MSDogeUSDCElig().call();
+				const _msdogeUSDCPen = await Staking.methods.MSDogeUSDCPen().call();
+
+				const _msdogeFRAXAPY = await Staking.methods.MSDogeFRAXAPY().call();
+				const _msdogeFRAXEli = await Staking.methods.MSDogeFRAXElig().call();
+				const _msdogeFRAXPen = await Staking.methods.MSDogeFRAXPen().call();
+
+				const _msdogeSHIBAPY = await Staking.methods.MSDogeSHIBAPY().call();
+				const _msdogeSHIBEli = await Staking.methods.MSDogeSHIBElig().call();
+				const _msdogeSHIBPen = await Staking.methods.MSDogeSHIBPen().call();
+
+				const _msdogeCVXAPY = await Staking.methods.MSDogeCVXAPY().call();
+				const _msdogeCVXEli = await Staking.methods.MSDogeCVXElig().call();
+				const _msdogeCVXPen = await Staking.methods.MSDogeCVXPen().call();
+
+				const _cryptoAAVEAPY = await Staking.methods.CryptoAAVEAPY().call();
+				const _cryptoAAVEEli = await Staking.methods.CryptoAAVEElig().call();
+				const _cryptoAAVEPen = await Staking.methods.CryptoAAVEPen().call();
+
+				const _cryptoUSDTAPY = await Staking.methods.CryptoUSDTAPY().call();
+				const _cryptoUSDTEli = await Staking.methods.CryptoUSDTElig().call();
+				const _cryptoUSDTPen = await Staking.methods.CryptoUSDTPen().call();
+
+				const _cryptoTUSDAPY = await Staking.methods.CryptoTUSDAPY().call();
+				const _cryptoTUSDEli = await Staking.methods.CryptoTUSDElig().call();
+				const _cryptoTUSDPen = await Staking.methods.CryptoTUSDPen().call();
+
+				const _cryptoETHAPY = await Staking.methods.CryptoETHAPY().call();
+				const _cryptoETHEli = await Staking.methods.CryptoETHElig().call();
+				const _cryptoETHPen = await Staking.methods.CryptoETHPen().call();
+
+				const _cryptoGUSDAPY = await Staking.methods.CryptoGUSDAPY().call();
+				const _cryptoGUSDEli = await Staking.methods.CryptoGUSDElig().call();
+				const _cryptoGUSDPen = await Staking.methods.CryptoGUSDPen().call();
+
+				const _cryptoPAXAPY = await Staking.methods.CryptoPAXAPY().call();
+				const _cryptoPAXEli = await Staking.methods.CryptoPAXElig().call();
+				const _cryptoPAXPen = await Staking.methods.CryptoPAXPen().call();
+
+				setInitData({
+					...initData,
+					dogeAPY: _dogeAPY,
+					dogeEli: _dogeEli,
+					dogePen: _dogePen,
+
+					loriaEli: _loriaEli,
+					loriaAPY: _loriaAPY,
+					loriaPen: _loriaPen,
+
+					paraDAIAPY: _paraDAIAPY,
+					paraDAIEli: _paraDAIEli,
+					paraDAIPen: _paraDAIPen,
+
+					paraUSDTAPY: _paraUSDTAPY,
+					paraUSDTEli: _paraUSDTEli,
+					paraUSDTPen: _paraUSDTPen,
+
+					paraUSDCAPY: _paraUSDCAPY,
+					paraUSDCEli: _paraUSDCEli,
+					paraUSDCPen: _paraUSDCPen,
+
+					paraPAXAPY: _paraPAXAPY,
+					paraPAXEli: _paraPAXEli,
+					paraPAXPen: _paraPAXPen,
+
+					paraTUSDAPY: _paraTUSDAPY,
+					paraTUSDEli: _paraTUSDEli,
+					paraTUSDPen: _paraTUSDPen,
+
+					paraUSDPAPY: _paraUSDPAPY,
+					paraUSDPEli: _paraUSDPEli,
+					paraUSDPPen: _paraUSDPPen,
+
+					alphaELONAPY: _alphaELONAPY,
+					alphaELONEli: _alphaELONEli,
+					alphaELONPen: _alphaELONPen,
+
+					alphaSHIBAPY: _alphaSHIBAPY,
+					alphaSHIBEli: _alphaSHIBEli,
+					alphaSHIBPen: _alphaSHIBPen,
+
+					alphaMSDOGEAPY: _alphaMSDOGEAPY,
+					alphaMSDOGEEli: _alphaMSDOGEEli,
+					alphaMSDOGEPen: _alphaMSDOGEPen,
+
+					alphaHOGEAPY: _alphaHOGEAPY,
+					alphaHOGEEli: _alphaHOGEEli,
+					alphaHOGEPen: _alphaHOGEPen,
+
+					alphaSMIAPY: _alphaSMIAPY,
+					alphaSMIEli: _alphaSMIEli,
+					alphaSMIPen: _alphaSMIPen,
+
+					alphaSUSHIAPY: _alphaSUSHIAPY,
+					alphaSUSHIEli: _alphaSUSHIEli,
+					alphaSUSHIPen: _alphaSUSHIPen,
+
+					omegaCRVAPY: _omegaCRVAPY,
+					omegaCRVEli: _omegaCRVEli,
+					omegaCRVPen: _omegaCRVPen,
+
+					omegaKNCAPY: _omegaKNCAPY,
+					omegaKNCEli: _omegaKNCEli,
+					omegaKNCPen: _omegaKNCPen,
+
+					omegaZRXAPY: _omegaZRXAPY,
+					omegaZRXEli: _omegaZRXEli,
+					omegaZRXPen: _omegaZRXPen,
+
+					omegaBNTAPY: _omegaBNTAPY,
+					omegaBNTEli: _omegaBNTEli,
+					omegaBNTPen: _omegaBNTPen,
+
+					omegaUNIAPY: _omegaUNIAPY,
+					omegaUNIEli: _omegaUNIEli,
+					omegaUNIPen: _omegaUNIPen,
+
+					omegaMKRAPY: _omegaMKRAPY,
+					omegaMKREli: _omegaMKREli,
+					omegaMKRPen: _omegaMKRPen,
+
+					eusdAAVEAPY: _eusdAAVEAPY,
+					eusdAAVEEli: _eusdAAVEEli,
+					eusdAAVEPen: _eusdAAVEPen,
+
+					eusdCOMPAPY: _eusdCOMPAPY,
+					eusdCOMPEli: _eusdCOMPEli,
+					eusdCOMPPen: _eusdCOMPPen,
+
+					eusdWBTCAPY: _eusdWBTCAPY,
+					eusdWBTCEli: _eusdWBTCEli,
+					eusdWBTCPen: _eusdWBTCPen,
+
+					eusdWETHAPY: _eusdWETHAPY,
+					eusdWETHEli: _eusdWETHEli,
+					eusdWETHPen: _eusdWETHPen,
+
+					eusdOHMAPY: _eusdOHMAPY,
+					eusdOHMEli: _eusdOHMEli,
+					eusdOHMPen: _eusdOHMPen,
+
+					eusdCVXAPY: _eusdCVXAPY,
+					eusdCVXEli: _eusdCVXEli,
+					eusdCVXPen: _eusdCVXPen,
+
+					msdogeWETHAPY: _msdogeWETHAPY,
+					msdogeWETHEli: _msdogeWETHEli,
+					msdogeWETHPen: _msdogeWETHPen,
+
+					msdogeDAIAPY: _msdogeDAIAPY,
+					msdogeDAIEli: _msdogeDAIEli,
+					msdogeDAIPen: _msdogeDAIPen,
+
+					msdogeUSDCAPY: _msdogeUSDCAPY,
+					msdogeUSDCEli: _msdogeUSDCEli,
+					msdogeUSDCPen: _msdogeUSDCPen,
+
+					msdogeFRAXAPY: _msdogeFRAXAPY,
+					msdogeFRAXEli: _msdogeFRAXEli,
+					msdogeFRAXPen: _msdogeFRAXPen,
+
+					msdogeSHIBAPY: _msdogeSHIBAPY,
+					msdogeSHIBEli: _msdogeSHIBEli,
+					msdogeSHIBPen: _msdogeSHIBPen,
+
+					msdogeCVXAPY: _msdogeCVXAPY,
+					msdogeCVXEli: _msdogeCVXEli,
+					msdogeCVXPen: _msdogeCVXPen,
+
+					cryptoAAVEAPY: _cryptoAAVEAPY,
+					cryptoAAVEEli: _cryptoAAVEEli,
+					cryptoAAVEPen: _cryptoAAVEPen,
+
+					cryptoUSDTAPY: _cryptoUSDTAPY,
+					cryptoUSDTEli: _cryptoUSDTEli,
+					cryptoUSDTPen: _cryptoUSDTPen,
+
+					cryptoTUSDAPY: _cryptoTUSDAPY,
+					cryptoTUSDEli: _cryptoTUSDEli,
+					cryptoTUSDPen: _cryptoTUSDPen,
+
+					cryptoETHAPY: _cryptoETHAPY,
+					cryptoETHEli: _cryptoETHEli,
+					cryptoETHPen: _cryptoETHPen,
+
+					cryptoGUSDAPY: _cryptoGUSDAPY,
+					cryptoGUSDEli: _cryptoGUSDEli,
+					cryptoGUSDPen: _cryptoGUSDPen,
+
+					cryptoPAXAPY: _cryptoPAXAPY,
+					cryptoPAXEli: _cryptoPAXEli,
+					cryptoPAXPen: _cryptoPAXPen,
+				});
+
+				setDogeAPY(_dogeAPY);
+				setDogeEli(_dogeEli);
+				setDogePenalty(_dogePen);
+
+				setLoriaAPY(_loriaAPY);
+				setLoriaEli(_loriaEli);
+				setLoriaPenalty(_loriaPen);
+
+				setParaDAIAPY(_paraDAIAPY);
+				setParaDAIEli(_paraDAIEli);
+				setParaDAIPen(_paraDAIPen);
+
+				setParaUSDTAPY(_paraUSDTAPY);
+				setParaUSDTEli(_paraUSDTEli);
+				setParaUSDTPen(_paraUSDTPen);
+
+				setParaUSDCAPY(_paraUSDCAPY);
+				setParaUSDCEli(_paraUSDCEli);
+				setParaUSDCPen(_paraUSDCPen);
+
+				setParaPAXAPY(_paraPAXAPY);
+				setParaPAXEli(_paraPAXEli);
+				setParaPAXPen(_paraPAXPen);
+
+				setParaTUSDAPY(_paraTUSDAPY);
+				setParaTUSDEli(_paraTUSDEli);
+				setParaTUSDPen(_paraTUSDPen);
+
+				setParaUSDPAPY(_paraUSDPAPY);
+				setParaUSDPEli(_paraUSDPEli);
+				setParaUSDPPen(_paraUSDPPen);
+
+				setAlphaELONAPY(_alphaELONAPY);
+				setAlphaELONEli(_alphaELONEli);
+				setAlphaELONPen(_alphaELONPen);
+
+				setAlphaSHIBAPY(_alphaSHIBAPY);
+				setAlphaSHIBEli(_alphaSHIBEli);
+				setAlphaSHIBPen(_alphaSHIBPen);
+
+				setAlphaMSDOGEAPY(_alphaMSDOGEAPY);
+				setAlphaMSDOGEEli(_alphaMSDOGEEli);
+				setAlphaMSDOGEPen(_alphaMSDOGEPen);
+
+				setAlphaHOGEAPY(_alphaHOGEAPY);
+				setAlphaHOGEEli(_alphaHOGEEli);
+				setAlphaHOGEPen(_alphaHOGEPen);
+
+				setAlphaSMIAPY(_alphaSMIAPY);
+				setAlphaSMIEli(_alphaSMIEli);
+				setAlphaSMIPen(_alphaSMIPen);
+
+				setAlphaSUSHIAPY(_alphaSUSHIAPY);
+				setAlphaSUSHIEli(_alphaSUSHIEli);
+				setAlphaSUSHIPen(_alphaSUSHIPen);
+
+				setOmegaCRVAPY(_omegaCRVAPY);
+				setOmegaCRVEli(_omegaCRVEli);
+				setOmegaCRVPen(_omegaCRVPen);
+
+				setOmegaKNCAPY(_omegaKNCAPY);
+				setOmegaKNCEli(_omegaKNCEli);
+				setOmegaKNCPen(_omegaKNCPen);
+
+				setOmegaZRXAPY(_omegaZRXAPY);
+				setOmegaZRXEli(_omegaZRXEli);
+				setOmegaZRXPen(_omegaZRXPen);
+
+				setOmegaBNTAPY(_omegaBNTAPY);
+				setOmegaBNTEli(_omegaBNTEli);
+				setOmegaBNTPen(_omegaBNTPen);
+
+				setOmegaUNIAPY(_omegaUNIAPY);
+				setOmegaUNIEli(_omegaUNIEli);
+				setOmegaUNIPen(_omegaUNIPen);
+
+				setOmegaMKRAPY(_omegaMKRAPY);
+				setOmegaMKREli(_omegaMKREli);
+				setOmegaMKRPen(_omegaMKRPen);
+
+				seteUSDAAVEAPY(_eusdAAVEAPY);
+				seteUSDAAVEEli(_eusdAAVEEli);
+				seteUSDAAVEPen(_eusdAAVEPen);
+
+				seteUSDCOMPAPY(_eusdCOMPAPY);
+				seteUSDCOMPEli(_eusdCOMPEli);
+				seteUSDCOMPPen(_eusdCOMPPen);
+
+				seteUSDWBTCAPY(_eusdWBTCAPY);
+				seteUSDWBTCEli(_eusdWBTCEli);
+				seteUSDWBTCPen(_eusdWBTCPen);
+
+				seteUSDWETHAPY(_eusdWETHAPY);
+				seteUSDWETHEli(_eusdWETHEli);
+				seteUSDWETHPen(_eusdWETHPen);
+
+				seteUSDOHMAPY(_eusdOHMAPY);
+				seteUSDOHMEli(_eusdOHMEli);
+				seteUSDOHMPen(_eusdOHMPen);
+
+				seteUSDCVXAPY(_eusdCVXAPY);
+				seteUSDCVXEli(_eusdCVXEli);
+				seteUSDCVXPen(_eusdCVXPen);
+
+				setMSDogeWETHAPY(_msdogeWETHAPY);
+				setMSDogeWETHEli(_msdogeWETHEli);
+				setMSDogeWETHPen(_msdogeWETHPen);
+
+				setMSDogeDAIAPY(_msdogeDAIAPY);
+				setMSDogeDAIEli(_msdogeDAIEli);
+				setMSDogeDAIPen(_msdogeDAIPen);
+
+				setMSDogeUSDCAPY(_msdogeUSDCAPY);
+				setMSDogeUSDCEli(_msdogeUSDCEli);
+				setMSDogeUSDCPen(_msdogeUSDCPen);
+
+				setMSDogeFRAXAPY(_msdogeFRAXAPY);
+				setMSDogeFRAXEli(_msdogeFRAXEli);
+				setMSDogeFRAXPen(_msdogeFRAXPen);
+
+				setMSDogeSHIBAPY(_msdogeSHIBAPY);
+				setMSDogeSHIBEli(_msdogeSHIBEli);
+				setMSDogeSHIBPen(_msdogeSHIBPen);
+
+				setMSDogeCVXAPY(_msdogeCVXAPY);
+				setMSDogeCVXEli(_msdogeCVXEli);
+				setMSDogeCVXPen(_msdogeCVXPen);
+
+				setCryptoAAVEAPY(_cryptoAAVEAPY);
+				setCryptoAAVEEli(_cryptoAAVEEli);
+				setCryptoAAVEPen(_cryptoAAVEPen);
+
+				setCryptoUSDTAPY(_cryptoUSDTAPY);
+				setCryptoUSDTEli(_cryptoUSDTEli);
+				setCryptoUSDTPen(_cryptoUSDTPen);
+
+				setCryptoTUSDAPY(_cryptoTUSDAPY);
+				setCryptoTUSDEli(_cryptoTUSDEli);
+				setCryptoTUSDPen(_cryptoTUSDPen);
+
+				setCryptoETHAPY(_cryptoETHAPY);
+				setCryptoETHEli(_cryptoETHEli);
+				setCryptoETHPen(_cryptoETHPen);
+
+				setCryptoGUSDAPY(_cryptoGUSDAPY);
+				setCryptoGUSDEli(_cryptoGUSDEli);
+				setCryptoGUSDPen(_cryptoGUSDPen);
+
+				setCryptoPAXAPY(_cryptoPAXAPY);
+				setCryptoPAXEli(_cryptoPAXEli);
+				setCryptoPAXPen(_cryptoPAXPen);
+			}
+		};
+
+		setData();
 	}, [account, activeItem]);
 
 	const importAirDropList = (e, type) => {
@@ -93,6 +826,8 @@ let AdminDashboard = () => {
 				case 1:
 					setCryptoCliamList([]);
 					break;
+				default:
+					break;
 			}
 		}
 	};
@@ -115,6 +850,8 @@ let AdminDashboard = () => {
 			case 1:
 				setCryptoCliamList(newArray);
 				break;
+			default:
+				break;
 		}
 	};
 
@@ -122,33 +859,691 @@ let AdminDashboard = () => {
 		try {
 			setIsLoading(true);
 			switch (activeItem.toString()) {
-				case "0":
-					await Staking.methods.setDogeAPY(DogeAPY).send({ from: account });
-					NotificationManager.success(":D", "Success");
-					break;
-				case "1":
-					await Staking.methods.setLoriaAPY(LoriaAPY).send({ from: account });
-					NotificationManager.success(":D", "Success");
-					break;
-					break;
-				case "2":
-					await Staking.methods.setDogeElig(DogeEli).send({ from: account });
-					NotificationManager.success(":D", "Success");
-					break;
-				case "3":
-					alert();
-					await Staking.methods.setLoriaElig(LoriaEli).send({ from: account });
-					NotificationManager.success(":D", "Success");
-					break;
-				case "4":
-					await Staking.methods.setDogePenalty(DogePen).send({ from: account });
-					NotificationManager.success(":D", "Success");
-					break;
-				case "5":
+				case "paraDAIAPY":
 					await Staking.methods
-						.setLoriaPenalty(LoriaPen)
+						.setParaDAIAPY(ParaDAIAPY)
 						.send({ from: account });
 					NotificationManager.success(":D", "Success");
+					break;
+				case "paraDAIEli":
+					await Staking.methods
+						.setParaDAIEli(ParaDAIEli)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+				case "paraDAIPen":
+					await Staking.methods
+						.setParaDAIPen(ParaDAIPen)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+
+				case "paraUSDTAPY":
+					await Staking.methods
+						.setParaUSDTAPY(ParaUSDTAPY)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+				case "paraUSDTEli":
+					await Staking.methods
+						.setParaUSDTEli(ParaUSDTEli)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+				case "paraUSDTPen":
+					await Staking.methods
+						.setParaUSDTPen(ParaUSDTPen)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+
+				case "paraUSDCAPY":
+					await Staking.methods
+						.setParaUSDCAPY(ParaUSDCAPY)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+				case "paraUSDCEli":
+					await Staking.methods
+						.setParaUSDCEli(ParaUSDCEli)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+				case "paraUSDCPen":
+					await Staking.methods
+						.setParaUSDCPen(ParaUSDCPen)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+
+				case "paraPAXAPY":
+					await Staking.methods
+						.setParaPAXAPY(ParaPAXAPY)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+				case "paraPAXEli":
+					await Staking.methods
+						.setParaPAXEli(ParaPAXEli)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+				case "paraPAXPen":
+					await Staking.methods
+						.setParaPAXPen(ParaPAXPen)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+
+				case "paraTUSDAPY":
+					await Staking.methods
+						.setParaTUSDAPY(ParaTUSDAPY)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+				case "paraTUSDEli":
+					await Staking.methods
+						.setParaTUSDEli(ParaTUSDEli)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+				case "paraTUSDPen":
+					await Staking.methods
+						.setParaTUSDPen(ParaTUSDPen)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+
+				case "paraUSDPAPY":
+					await Staking.methods
+						.setParaUSDPAPY(ParaUSDPAPY)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+				case "paraUSDPEli":
+					await Staking.methods
+						.setParaUSDPEli(ParaUSDPEli)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+				case "paraUSDPPen":
+					await Staking.methods
+						.setParaUSDPPen(ParaUSDPPen)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+
+				case "alphaELONAPY":
+					await Staking.methods
+						.setAlphaELONAPY(AlphaELONAPY)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+				case "alphaELONEli":
+					await Staking.methods
+						.setAlphaELONEli(AlphaELONEli)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+				case "alphaELONPen":
+					await Staking.methods
+						.setAlphaELONPen(AlphaELONPen)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+
+				case "alphaSHIBAPY":
+					await Staking.methods
+						.setAlphaSHIBAPY(AlphaSHIBAPY)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+				case "alphaSHIBEli":
+					await Staking.methods
+						.setAlphaSHIBEli(AlphaSHIBEli)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+				case "alphaSHIBPen":
+					await Staking.methods
+						.setAlphaSHIBPen(AlphaSHIBPen)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+
+				case "alphaMSDOGEAPY":
+					await Staking.methods
+						.setAlphaMSDOGEAPY(AlphaMSDOGEAPY)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+				case "alphaMSDOGEEli":
+					await Staking.methods
+						.setAlphaMSDOGEEli(AlphaMSDOGEEli)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+				case "alphaMSDOGEPen":
+					await Staking.methods
+						.setAlphaMSDOGEPen(AlphaMSDOGEPen)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+
+				case "alphaHOGEAPY":
+					await Staking.methods
+						.setAlphaHOGEAPY(AlphaHOGEAPY)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+				case "alphaHOGEEli":
+					await Staking.methods
+						.setAlphaHOGEEli(AlphaHOGEEli)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+				case "alphaHOGEPen":
+					await Staking.methods
+						.setAlphaHOGEPen(AlphaHOGEPen)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+
+				case "alphaSMIAPY":
+					await Staking.methods
+						.setAlphaSMIAPY(AlphaSMIAPY)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+				case "alphaSMIEli":
+					await Staking.methods
+						.setAlphaSMIEli(AlphaSMIEli)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+				case "alphaSMIPen":
+					await Staking.methods
+						.setAlphaSMIPen(AlphaSMIPen)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+
+				case "alphaSUSHIAPY":
+					await Staking.methods
+						.setAlphaSUSHIAPY(AlphaSUSHIAPY)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+				case "alphaSUSHIEli":
+					await Staking.methods
+						.setAlphaSUSHIEli(AlphaSUSHIEli)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+				case "alphaSUSHIPen":
+					await Staking.methods
+						.setAlphaSUSHIPen(AlphaSUSHIPen)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+
+				case "omegaCRVAPY":
+					await Staking.methods
+						.setOmegaCRVAPY(OmegaCRVAPY)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+				case "omegaCRVEli":
+					await Staking.methods
+						.setOmegaCRVEli(OmegaCRVEli)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+				case "omegaCRVPen":
+					await Staking.methods
+						.setOmegaCRVPen(OmegaCRVPen)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+
+				case "omegaKNCAPY":
+					await Staking.methods
+						.setOmegaKNCAPY(OmegaKNCAPY)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+				case "omegaKNCEli":
+					await Staking.methods
+						.setOmegaKNCEli(OmegaKNCEli)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+				case "omegaKNCPen":
+					await Staking.methods
+						.setOmegaKNCPen(OmegaKNCPen)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+
+				case "omegaZRXAPY":
+					await Staking.methods
+						.setOmegaZRXAPY(OmegaZRXAPY)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+				case "omegaZRXEli":
+					await Staking.methods
+						.setOmegaZRXEli(OmegaZRXEli)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+				case "omegaZRXPen":
+					await Staking.methods
+						.setOmegaZRXPen(OmegaZRXPen)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+
+				case "omegaBNTAPY":
+					await Staking.methods
+						.setOmegaBNTAPY(OmegaBNTAPY)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+				case "omegaBNTEli":
+					await Staking.methods
+						.setOmegaBNTEli(OmegaBNTEli)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+				case "omegaBNTPen":
+					await Staking.methods
+						.setOmegaBNTPen(OmegaBNTPen)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+
+				case "omegaUNIAPY":
+					await Staking.methods
+						.setOmegaUNIAPY(OmegaUNIAPY)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+				case "omegaUNIEli":
+					await Staking.methods
+						.setOmegaUNIEli(OmegaUNIEli)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+				case "omegaUNIPen":
+					await Staking.methods
+						.setOmegaUNIPen(OmegaUNIPen)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+
+				case "omegaMKRAPY":
+					await Staking.methods
+						.setOmegaMKRAPY(OmegaMKRAPY)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+				case "omegaMKREli":
+					await Staking.methods
+						.setOmegaMKREli(OmegaMKREli)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+				case "omegaMKRPen":
+					await Staking.methods
+						.setOmegaMKRPen(OmegaMKRPen)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+
+				case "eusdAAVEAPY":
+					await Staking.methods
+						.seteUSDAAVEAPY(eUSDAAVEAPY)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+				case "eusdAAVEEli":
+					await Staking.methods
+						.seteUSDAAVEEli(eUSDAAVEEli)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+				case "eusdAAVEPen":
+					await Staking.methods
+						.seteUSDAAVEPen(eUSDAAVEPen)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+
+				case "eusdCOMPAPY":
+					await Staking.methods
+						.seteUSDCOMPAPY(eUSDCOMPAPY)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+				case "eusdCOMPEli":
+					await Staking.methods
+						.seteUSDCOMPEli(eUSDCOMPEli)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+				case "eusdCOMPPen":
+					await Staking.methods
+						.seteUSDCOMPPen(eUSDCOMPPen)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+
+				case "eusdWBTCAPY":
+					await Staking.methods
+						.seteUSDWBTCAPY(eUSDWBTCAPY)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+				case "eusdWBTCEli":
+					await Staking.methods
+						.seteUSDWBTCEli(eUSDWBTCEli)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+				case "eusdWBTCPen":
+					await Staking.methods
+						.seteUSDWBTCPen(eUSDWBTCPen)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+
+				case "eusdWETHAPY":
+					await Staking.methods
+						.seteUSDWETHAPY(eUSDWETHAPY)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+				case "eusdWETHEli":
+					await Staking.methods
+						.seteUSDWETHEli(eUSDWETHEli)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+				case "eusdWETHPen":
+					await Staking.methods
+						.seteUSDWETHPen(eUSDWETHPen)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+
+				case "eusdOHMAPY":
+					await Staking.methods
+						.seteUSDOHMAPY(eUSDOHMAPY)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+				case "eusdOHMEli":
+					await Staking.methods
+						.seteUSDOHMEli(eUSDOHMEli)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+				case "eusdOHMPen":
+					await Staking.methods
+						.seteUSDOHMPen(eUSDOHMPen)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+
+				case "eusdCVXAPY":
+					await Staking.methods
+						.seteUSDCVXAPY(eUSDCVXAPY)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+				case "eusdCVXEli":
+					await Staking.methods
+						.seteUSDCVXEli(eUSDCVXEli)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+				case "eusdCVXPen":
+					await Staking.methods
+						.seteUSDCVXPen(eUSDCVXPen)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+
+				case "msdogeWETHAPY":
+					await Staking.methods
+						.setMSDogeWETHAPY(MSDogeWETHAPY)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+				case "msdogeWETHEli":
+					await Staking.methods
+						.setMSDogeWETHEli(MSDogeWETHEli)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+				case "msdogeWETHPen":
+					await Staking.methods
+						.setMSDogeWETHPen(MSDogeWETHPen)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+
+				case "msdogeDAIAPY":
+					await Staking.methods
+						.setMSDogeDAIAPY(MSDogeDAIAPY)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+				case "msdogeDAIEli":
+					await Staking.methods
+						.setMSDogeDAIEli(MSDogeDAIEli)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+				case "msdogeDAIPen":
+					await Staking.methods
+						.setMSDogeDAIPen(MSDogeDAIPen)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+
+				case "msdogeUSDCAPY":
+					await Staking.methods
+						.setMSDogeUSDCAPY(MSDogeUSDCAPY)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+				case "msdogeUSDCEli":
+					await Staking.methods
+						.setMSDogeUSDCEli(MSDogeUSDCEli)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+				case "msdogeUSDCPen":
+					await Staking.methods
+						.setMSDogeUSDCPen(MSDogeUSDCPen)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+
+				case "msdogeFRAXAPY":
+					await Staking.methods
+						.setMSDogeFRAXAPY(MSDogeFRAXAPY)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+				case "msdogeFRAXEli":
+					await Staking.methods
+						.setMSDogeFRAXEli(MSDogeFRAXEli)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+				case "msdogeFRAXPen":
+					await Staking.methods
+						.setMSDogeFRAXPen(MSDogeFRAXPen)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+
+				case "msdogeSHIBAPY":
+					await Staking.methods
+						.setMSDogeSHIBAPY(MSDogeSHIBAPY)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+				case "msdogeSHIBEli":
+					await Staking.methods
+						.setMSDogeSHIBEli(MSDogeSHIBEli)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+				case "msdogeSHIBPen":
+					await Staking.methods
+						.setMSDogeSHIBPen(MSDogeSHIBPen)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+
+				case "msdogeCVXAPY":
+					await Staking.methods
+						.setMSDogeCVXAPY(MSDogeCVXAPY)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+				case "msdogeCVXEli":
+					await Staking.methods
+						.setMSDogeCVXEli(MSDogeCVXEli)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+				case "msdogeCVXPen":
+					await Staking.methods
+						.setMSDogeCVXPen(MSDogeCVXPen)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+
+				case "cryptoAAVEAPY":
+					await Staking.methods
+						.setCryptoAAVEAPY(CryptoAAVEAPY)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+				case "cryptoAAVEEli":
+					await Staking.methods
+						.setCryptoAAVEEli(CryptoAAVEEli)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+				case "cryptoAAVEPen":
+					await Staking.methods
+						.setCryptoAAVEPen(CryptoAAVEPen)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+
+				case "cryptoUSDTAPY":
+					await Staking.methods
+						.setCryptoUSDTAPY(CryptoUSDTAPY)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+				case "cryptoUSDTEli":
+					await Staking.methods
+						.setCryptoUSDTEli(CryptoUSDTEli)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+				case "cryptoUSDTPen":
+					await Staking.methods
+						.setCryptoUSDTPen(CryptoUSDTPen)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+
+				case "cryptoTUSDAPY":
+					await Staking.methods
+						.setCryptoTUSDAPY(CryptoTUSDAPY)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+				case "cryptoTUSDEli":
+					await Staking.methods
+						.setCryptoTUSDEli(CryptoTUSDEli)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+				case "cryptoTUSDPen":
+					await Staking.methods
+						.setCryptoTUSDPen(CryptoTUSDPen)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+
+				case "cryptoETHAPY":
+					await Staking.methods
+						.setCryptoETHAPY(CryptoETHAPY)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+				case "cryptoETHEli":
+					await Staking.methods
+						.setCryptoETHEli(CryptoETHEli)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+				case "cryptoETHPen":
+					await Staking.methods
+						.setCryptoETHPen(CryptoETHPen)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+
+				case "cryptoGUSDAPY":
+					await Staking.methods
+						.setCryptoGUSDAPY(CryptoGUSDAPY)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+				case "cryptoGUSDEli":
+					await Staking.methods
+						.setCryptoGUSDEli(CryptoGUSDEli)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+				case "cryptoGUSDPen":
+					await Staking.methods
+						.setCryptoGUSDPen(CryptoGUSDPen)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+
+				case "cryptoPAXAPY":
+					await Staking.methods
+						.setCryptoPAXAPY(CryptoPAXAPY)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+				case "cryptoPAXEli":
+					await Staking.methods
+						.setCryptoPAXEli(CryptoPAXEli)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+				case "cryptoPAXPen":
+					await Staking.methods
+						.setCryptoPAXPen(CryptoPAXPen)
+						.send({ from: account });
+					NotificationManager.success(":D", "Success");
+					break;
+
+				default:
 					break;
 			}
 			window.$("#amendPopup").modal("hide");
@@ -294,9 +1689,15 @@ let AdminDashboard = () => {
 														account={account}
 														initData={initData}
 														setActiveItem={setActiveItem}
-														coin={DogeAPY}
-														setCoin={setDogeAPY}
-														initDataKey="dogeAPY"
+														apy={ParaDAIAPY}
+														setAPY={setParaDAIAPY}
+														eli={ParaDAIEli}
+														setEli={setParaDAIEli}
+														pen={ParaDAIPen}
+														setPen={setParaDAIPen}
+														initDataKeyAPY="paraDAIAPY"
+														initDataKeyEli="paraDAIEli"
+														initDataKeyPen="paraDAIPen"
 														title={"PARA-DAI"}
 													/>
 
@@ -304,9 +1705,15 @@ let AdminDashboard = () => {
 														account={account}
 														initData={initData}
 														setActiveItem={setActiveItem}
-														coin={DogeAPY}
-														setCoin={setDogeAPY}
-														initDataKey="dogeAPY"
+														apy={ParaUSDTAPY}
+														setAPY={setParaUSDTAPY}
+														eli={ParaUSDTEli}
+														setEli={setParaUSDTEli}
+														pen={ParaUSDTPen}
+														setPen={setParaUSDTPen}
+														initDataKeyAPY="paraUSDTAPY"
+														initDataKeyEli="paraUSDTEli"
+														initDataKeyPen="paraUSDTPen"
 														title={"PARA-USDT"}
 													/>
 												</div>
@@ -316,9 +1723,15 @@ let AdminDashboard = () => {
 														account={account}
 														initData={initData}
 														setActiveItem={setActiveItem}
-														coin={DogeAPY}
-														setCoin={setDogeAPY}
-														initDataKey="dogeAPY"
+														apy={ParaUSDCAPY}
+														setAPY={setParaUSDCAPY}
+														eli={ParaUSDCEli}
+														setEli={setParaUSDCEli}
+														pen={ParaUSDCPen}
+														setPen={setParaUSDCPen}
+														initDataKeyAPY="paraUSDCAPY"
+														initDataKeyEli="paraUSDCEli"
+														initDataKeyPen="paraUSDCPen"
 														title={"PARA-USDC"}
 													/>
 
@@ -326,10 +1739,16 @@ let AdminDashboard = () => {
 														account={account}
 														initData={initData}
 														setActiveItem={setActiveItem}
-														coin={DogeAPY}
-														setCoin={setDogeAPY}
-														initDataKey="dogeAPY"
-														title={"PARA-GUSD"}
+														apy={ParaPAXAPY}
+														setAPY={setParaPAXAPY}
+														eli={ParaPAXEli}
+														setEli={setParaPAXEli}
+														pen={ParaPAXPen}
+														setPen={setParaPAXPen}
+														initDataKeyAPY="paraPAXAPY"
+														initDataKeyEli="paraPAXEli"
+														initDataKeyPen="paraPAXPen"
+														title={"PARA-PAX"}
 													/>
 												</div>
 
@@ -338,9 +1757,15 @@ let AdminDashboard = () => {
 														account={account}
 														initData={initData}
 														setActiveItem={setActiveItem}
-														coin={DogeAPY}
-														setCoin={setDogeAPY}
-														initDataKey="dogeAPY"
+														apy={ParaTUSDAPY}
+														setAPY={setParaTUSDAPY}
+														eli={ParaTUSDEli}
+														setEli={setParaTUSDEli}
+														pen={ParaTUSDPen}
+														setPen={setParaTUSDPen}
+														initDataKeyAPY="paraTUSDAPY"
+														initDataKeyEli="paraTUSDEli"
+														initDataKeyPen="paraTUSDPen"
 														title={"PARA-TUSD"}
 													/>
 
@@ -348,9 +1773,15 @@ let AdminDashboard = () => {
 														account={account}
 														initData={initData}
 														setActiveItem={setActiveItem}
-														coin={DogeAPY}
-														setCoin={setDogeAPY}
-														initDataKey="dogeAPY"
+														apy={ParaUSDPAPY}
+														setAPY={setParaUSDPAPY}
+														eli={ParaUSDPEli}
+														setEli={setParaUSDPEli}
+														pen={ParaUSDPPen}
+														setPen={setParaUSDPPen}
+														initDataKeyAPY="paraUSDPAPY"
+														initDataKeyEli="paraUSDPEli"
+														initDataKeyPen="paraUSDPPen"
 														title={"PARA-USDP"}
 													/>
 												</div>
@@ -383,9 +1814,15 @@ let AdminDashboard = () => {
 														account={account}
 														initData={initData}
 														setActiveItem={setActiveItem}
-														coin={DogeAPY}
-														setCoin={setDogeAPY}
-														initDataKey="dogeAPY"
+														apy={AlphaELONAPY}
+														setAPY={setAlphaELONAPY}
+														eli={AlphaELONEli}
+														setEli={setAlphaELONEli}
+														pen={AlphaELONPen}
+														setPen={setAlphaELONPen}
+														initDataKeyAPY="alphaELONAPY"
+														initDataKeyEli="alphaELONEli"
+														initDataKeyPen="alphaELONPen"
 														title={"ALPHA-ELON"}
 													/>
 
@@ -393,9 +1830,15 @@ let AdminDashboard = () => {
 														account={account}
 														initData={initData}
 														setActiveItem={setActiveItem}
-														coin={DogeAPY}
-														setCoin={setDogeAPY}
-														initDataKey="dogeAPY"
+														apy={AlphaSHIBAPY}
+														setAPY={setAlphaSHIBAPY}
+														eli={AlphaSHIBEli}
+														setEli={setAlphaSHIBEli}
+														pen={AlphaSHIBPen}
+														setPen={setAlphaSHIBPen}
+														initDataKeyAPY="alphaSHIBAPY"
+														initDataKeyEli="alphaSHIBEli"
+														initDataKeyPen="alphaSHIBPen"
 														title={"ALPHA-SHIB"}
 													/>
 												</div>
@@ -405,9 +1848,15 @@ let AdminDashboard = () => {
 														account={account}
 														initData={initData}
 														setActiveItem={setActiveItem}
-														coin={DogeAPY}
-														setCoin={setDogeAPY}
-														initDataKey="dogeAPY"
+														apy={AlphaMSDOGEAPY}
+														setAPY={setAlphaMSDOGEAPY}
+														eli={AlphaMSDOGEEli}
+														setEli={setAlphaMSDOGEEli}
+														pen={AlphaMSDOGEPen}
+														setPen={setAlphaMSDOGEPen}
+														initDataKeyAPY="alphaMSDOGEAPY"
+														initDataKeyEli="alphaMSDOGEEli"
+														initDataKeyPen="alphaMSDOGEPen"
 														title={"ALPHA-MSDOGE"}
 													/>
 
@@ -415,9 +1864,15 @@ let AdminDashboard = () => {
 														account={account}
 														initData={initData}
 														setActiveItem={setActiveItem}
-														coin={DogeAPY}
-														setCoin={setDogeAPY}
-														initDataKey="dogeAPY"
+														apy={AlphaHOGEAPY}
+														setAPY={setAlphaHOGEAPY}
+														eli={AlphaHOGEEli}
+														setEli={setAlphaHOGEEli}
+														pen={AlphaHOGEPen}
+														setPen={setAlphaHOGEPen}
+														initDataKeyAPY="alphaHOGEAPY"
+														initDataKeyEli="alphaHOGEEli"
+														initDataKeyPen="alphaHOGEPen"
 														title={"ALPHA-HOGE"}
 													/>
 												</div>
@@ -427,9 +1882,15 @@ let AdminDashboard = () => {
 														account={account}
 														initData={initData}
 														setActiveItem={setActiveItem}
-														coin={DogeAPY}
-														setCoin={setDogeAPY}
-														initDataKey="dogeAPY"
+														apy={AlphaSMIAPY}
+														setAPY={setAlphaSMIAPY}
+														eli={AlphaSMIEli}
+														setEli={setAlphaSMIEli}
+														pen={AlphaSMIPen}
+														setPen={setAlphaSMIPen}
+														initDataKeyAPY="alphaSMIAPY"
+														initDataKeyEli="alphaSMIEli"
+														initDataKeyPen="alphaSMIPen"
 														title={"ALPHA-SMI"}
 													/>
 
@@ -437,9 +1898,15 @@ let AdminDashboard = () => {
 														account={account}
 														initData={initData}
 														setActiveItem={setActiveItem}
-														coin={DogeAPY}
-														setCoin={setDogeAPY}
-														initDataKey="dogeAPY"
+														apy={AlphaSUSHIAPY}
+														setAPY={setAlphaSUSHIAPY}
+														eli={AlphaSUSHIEli}
+														setEli={setAlphaSUSHIEli}
+														pen={AlphaSUSHIPen}
+														setPen={setAlphaSUSHIPen}
+														initDataKeyAPY="alphaSUSHIAPY"
+														initDataKeyEli="alphaSUSHIEli"
+														initDataKeyPen="alphaSUSHIPen"
 														title={"ALPHA-SUSHI"}
 													/>
 												</div>
@@ -472,9 +1939,15 @@ let AdminDashboard = () => {
 														account={account}
 														initData={initData}
 														setActiveItem={setActiveItem}
-														coin={DogeAPY}
-														setCoin={setDogeAPY}
-														initDataKey="dogeAPY"
+														apy={OmegaCRVAPY}
+														setAPY={setOmegaCRVAPY}
+														eli={OmegaCRVEli}
+														setEli={setOmegaCRVEli}
+														pen={OmegaCRVPen}
+														setPen={setOmegaCRVPen}
+														initDataKeyAPY="omegaCRVAPY"
+														initDataKeyEli="omegaCRVEli"
+														initDataKeyPen="omegaCRVPen"
 														title={"OMEGA-CRV"}
 													/>
 
@@ -482,9 +1955,15 @@ let AdminDashboard = () => {
 														account={account}
 														initData={initData}
 														setActiveItem={setActiveItem}
-														coin={DogeAPY}
-														setCoin={setDogeAPY}
-														initDataKey="dogeAPY"
+														apy={OmegaKNCAPY}
+														setAPY={setOmegaKNCAPY}
+														eli={OmegaKNCEli}
+														setEli={setOmegaKNCEli}
+														pen={OmegaKNCPen}
+														setPen={setOmegaKNCPen}
+														initDataKeyAPY="omegaKNCAPY"
+														initDataKeyEli="omegaKNCEli"
+														initDataKeyPen="omegaKNCPen"
 														title={"OMEGA-KNC"}
 													/>
 												</div>
@@ -494,9 +1973,15 @@ let AdminDashboard = () => {
 														account={account}
 														initData={initData}
 														setActiveItem={setActiveItem}
-														coin={DogeAPY}
-														setCoin={setDogeAPY}
-														initDataKey="dogeAPY"
+														apy={OmegaZRXAPY}
+														setAPY={setOmegaZRXAPY}
+														eli={OmegaZRXEli}
+														setEli={setOmegaZRXEli}
+														pen={OmegaZRXPen}
+														setPen={setOmegaZRXPen}
+														initDataKeyAPY="omegaZRXAPY"
+														initDataKeyEli="omegaZRXEli"
+														initDataKeyPen="omegaZRXPen"
 														title={"OMEGA-ZRX"}
 													/>
 
@@ -504,9 +1989,15 @@ let AdminDashboard = () => {
 														account={account}
 														initData={initData}
 														setActiveItem={setActiveItem}
-														coin={DogeAPY}
-														setCoin={setDogeAPY}
-														initDataKey="dogeAPY"
+														apy={OmegaBNTAPY}
+														setAPY={setOmegaBNTAPY}
+														eli={OmegaBNTEli}
+														setEli={setOmegaBNTEli}
+														pen={OmegaBNTPen}
+														setPen={setOmegaBNTPen}
+														initDataKeyAPY="omegaBNTAPY"
+														initDataKeyEli="omegaBNTEli"
+														initDataKeyPen="omegaBNTPen"
 														title={"OMEGA-BNT"}
 													/>
 												</div>
@@ -516,9 +2007,15 @@ let AdminDashboard = () => {
 														account={account}
 														initData={initData}
 														setActiveItem={setActiveItem}
-														coin={DogeAPY}
-														setCoin={setDogeAPY}
-														initDataKey="dogeAPY"
+														apy={OmegaUNIAPY}
+														setAPY={setOmegaUNIAPY}
+														eli={OmegaUNIEli}
+														setEli={setOmegaUNIEli}
+														pen={OmegaUNIPen}
+														setPen={setOmegaUNIPen}
+														initDataKeyAPY="omegaUNIAPY"
+														initDataKeyEli="omegaUNIEli"
+														initDataKeyPen="omegaUNIPen"
 														title={"OMEGA-UNI"}
 													/>
 
@@ -526,9 +2023,15 @@ let AdminDashboard = () => {
 														account={account}
 														initData={initData}
 														setActiveItem={setActiveItem}
-														coin={DogeAPY}
-														setCoin={setDogeAPY}
-														initDataKey="dogeAPY"
+														apy={OmegaMKRAPY}
+														setAPY={setOmegaMKRAPY}
+														eli={OmegaMKREli}
+														setEli={setOmegaMKREli}
+														pen={OmegaMKRPen}
+														setPen={setOmegaMKRPen}
+														initDataKeyAPY="omegaMKRAPY"
+														initDataKeyEli="omegaMKREli"
+														initDataKeyPen="omegaMKRPen"
 														title={"OMEGA-MKR"}
 													/>
 												</div>
@@ -561,9 +2064,15 @@ let AdminDashboard = () => {
 														account={account}
 														initData={initData}
 														setActiveItem={setActiveItem}
-														coin={DogeAPY}
-														setCoin={setDogeAPY}
-														initDataKey="dogeAPY"
+														apy={eUSDAAVEAPY}
+														setAPY={seteUSDAAVEAPY}
+														eli={eUSDAAVEEli}
+														setEli={seteUSDAAVEEli}
+														pen={eUSDAAVEPen}
+														setPen={seteUSDAAVEPen}
+														initDataKeyAPY="eusdAAVEAPY"
+														initDataKeyEli="eusdAAVEEli"
+														initDataKeyPen="eusdAAVEPen"
 														title={"eUSD-AAVE"}
 													/>
 
@@ -571,9 +2080,15 @@ let AdminDashboard = () => {
 														account={account}
 														initData={initData}
 														setActiveItem={setActiveItem}
-														coin={DogeAPY}
-														setCoin={setDogeAPY}
-														initDataKey="dogeAPY"
+														apy={eUSDCOMPAPY}
+														setAPY={seteUSDCOMPAPY}
+														eli={eUSDCOMPEli}
+														setEli={seteUSDCOMPEli}
+														pen={eUSDCOMPPen}
+														setPen={seteUSDCOMPPen}
+														initDataKeyAPY="eusdCOMPAPY"
+														initDataKeyEli="eusdCOMPEli"
+														initDataKeyPen="eusdCOMPPen"
 														title={"eUSD-COMP"}
 													/>
 												</div>
@@ -583,9 +2098,15 @@ let AdminDashboard = () => {
 														account={account}
 														initData={initData}
 														setActiveItem={setActiveItem}
-														coin={DogeAPY}
-														setCoin={setDogeAPY}
-														initDataKey="dogeAPY"
+														apy={eUSDWBTCAPY}
+														setAPY={seteUSDWBTCAPY}
+														eli={eUSDWBTCEli}
+														setEli={seteUSDWBTCEli}
+														pen={eUSDWBTCPen}
+														setPen={seteUSDWBTCPen}
+														initDataKeyAPY="eusdWBTCAPY"
+														initDataKeyEli="eusdWBTCEli"
+														initDataKeyPen="eusdWBTCPen"
 														title={"eUSD-WBTC"}
 													/>
 
@@ -593,9 +2114,15 @@ let AdminDashboard = () => {
 														account={account}
 														initData={initData}
 														setActiveItem={setActiveItem}
-														coin={DogeAPY}
-														setCoin={setDogeAPY}
-														initDataKey="dogeAPY"
+														apy={eUSDWETHAPY}
+														setAPY={seteUSDWETHAPY}
+														eli={eUSDWETHEli}
+														setEli={seteUSDWETHEli}
+														pen={eUSDWETHPen}
+														setPen={seteUSDWETHPen}
+														initDataKeyAPY="eusdWETHAPY"
+														initDataKeyEli="eusdWETHEli"
+														initDataKeyPen="eusdWETHPen"
 														title={"eUSD-WETH"}
 													/>
 												</div>
@@ -605,9 +2132,15 @@ let AdminDashboard = () => {
 														account={account}
 														initData={initData}
 														setActiveItem={setActiveItem}
-														coin={DogeAPY}
-														setCoin={setDogeAPY}
-														initDataKey="dogeAPY"
+														apy={eUSDOHMAPY}
+														setAPY={seteUSDOHMAPY}
+														eli={eUSDOHMEli}
+														setEli={seteUSDOHMEli}
+														pen={eUSDOHMPen}
+														setPen={seteUSDOHMPen}
+														initDataKeyAPY="eusdOHMAPY"
+														initDataKeyEli="eusdOHMEli"
+														initDataKeyPen="eusdOHMPen"
 														title={"eUSD-OHM"}
 													/>
 
@@ -615,9 +2148,15 @@ let AdminDashboard = () => {
 														account={account}
 														initData={initData}
 														setActiveItem={setActiveItem}
-														coin={DogeAPY}
-														setCoin={setDogeAPY}
-														initDataKey="dogeAPY"
+														apy={eUSDCVXAPY}
+														setAPY={seteUSDCVXAPY}
+														eli={eUSDCVXEli}
+														setEli={seteUSDCVXEli}
+														pen={eUSDCVXPen}
+														setPen={seteUSDCVXPen}
+														initDataKeyAPY="eusdCVXAPY"
+														initDataKeyEli="eusdCVXEli"
+														initDataKeyPen="eusdCVXPen"
 														title={"eUSD-CVX"}
 													/>
 												</div>
@@ -650,9 +2189,15 @@ let AdminDashboard = () => {
 														account={account}
 														initData={initData}
 														setActiveItem={setActiveItem}
-														coin={DogeAPY}
-														setCoin={setDogeAPY}
-														initDataKey="dogeAPY"
+														apy={MSDogeWETHAPY}
+														setAPY={setMSDogeWETHAPY}
+														eli={MSDogeWETHEli}
+														setEli={setMSDogeWETHEli}
+														pen={MSDogeWETHPen}
+														setPen={setMSDogeWETHPen}
+														initDataKeyAPY="msdogeWETHAPY"
+														initDataKeyEli="msdogeWETHEli"
+														initDataKeyPen="msdogeWETHPen"
 														title={"MSDOGE-WETH"}
 													/>
 
@@ -660,9 +2205,15 @@ let AdminDashboard = () => {
 														account={account}
 														initData={initData}
 														setActiveItem={setActiveItem}
-														coin={DogeAPY}
-														setCoin={setDogeAPY}
-														initDataKey="dogeAPY"
+														apy={MSDogeDAIAPY}
+														setAPY={setMSDogeDAIAPY}
+														eli={MSDogeDAIEli}
+														setEli={setMSDogeDAIEli}
+														pen={MSDogeDAIPen}
+														setPen={setMSDogeDAIPen}
+														initDataKeyAPY="msdogeDAIAPY"
+														initDataKeyEli="msdogeDAIEli"
+														initDataKeyPen="msdogeDAIPen"
 														title={"MSDOGE-DAI"}
 													/>
 												</div>
@@ -672,9 +2223,15 @@ let AdminDashboard = () => {
 														account={account}
 														initData={initData}
 														setActiveItem={setActiveItem}
-														coin={DogeAPY}
-														setCoin={setDogeAPY}
-														initDataKey="dogeAPY"
+														apy={MSDogeUSDCAPY}
+														setAPY={setMSDogeUSDCAPY}
+														eli={MSDogeUSDCEli}
+														setEli={setMSDogeUSDCEli}
+														pen={MSDogeUSDCPen}
+														setPen={setMSDogeUSDCPen}
+														initDataKeyAPY="msdogeUSDCAPY"
+														initDataKeyEli="msdogeUSDCEli"
+														initDataKeyPen="msdogeUSDCPen"
 														title={"MSDOGE-USDC"}
 													/>
 
@@ -682,9 +2239,15 @@ let AdminDashboard = () => {
 														account={account}
 														initData={initData}
 														setActiveItem={setActiveItem}
-														coin={DogeAPY}
-														setCoin={setDogeAPY}
-														initDataKey="dogeAPY"
+														apy={MSDogeFRAXAPY}
+														setAPY={setMSDogeFRAXAPY}
+														eli={MSDogeFRAXEli}
+														setEli={setMSDogeFRAXEli}
+														pen={MSDogeFRAXPen}
+														setPen={setMSDogeFRAXPen}
+														initDataKeyAPY="msdogeFRAXAPY"
+														initDataKeyEli="msdogeFRAXEli"
+														initDataKeyPen="msdogeFRAXPen"
 														title={"MSDOGE-FRAX"}
 													/>
 												</div>
@@ -694,9 +2257,15 @@ let AdminDashboard = () => {
 														account={account}
 														initData={initData}
 														setActiveItem={setActiveItem}
-														coin={DogeAPY}
-														setCoin={setDogeAPY}
-														initDataKey="dogeAPY"
+														apy={MSDogeSHIBAPY}
+														setAPY={setMSDogeSHIBAPY}
+														eli={MSDogeSHIBEli}
+														setEli={setMSDogeSHIBEli}
+														pen={MSDogeSHIBPen}
+														setPen={setMSDogeSHIBPen}
+														initDataKeyAPY="msdogeSHIBAPY"
+														initDataKeyEli="msdogeSHIBEli"
+														initDataKeyPen="msdogeSHIBPen"
 														title={"MSDOGE-SHIB"}
 													/>
 
@@ -704,9 +2273,15 @@ let AdminDashboard = () => {
 														account={account}
 														initData={initData}
 														setActiveItem={setActiveItem}
-														coin={DogeAPY}
-														setCoin={setDogeAPY}
-														initDataKey="dogeAPY"
+														apy={MSDogeCVXAPY}
+														setAPY={setMSDogeCVXAPY}
+														eli={MSDogeCVXEli}
+														setEli={setMSDogeCVXEli}
+														pen={MSDogeCVXPen}
+														setPen={setMSDogeCVXPen}
+														initDataKeyAPY="msdogeCVXAPY"
+														initDataKeyEli="msdogeCVXEli"
+														initDataKeyPen="msdogeCVXPen"
 														title={"MSDOGE-CVX"}
 													/>
 												</div>
@@ -739,42 +2314,32 @@ let AdminDashboard = () => {
 														account={account}
 														initData={initData}
 														setActiveItem={setActiveItem}
-														coin={DogeAPY}
-														setCoin={setDogeAPY}
-														initDataKey="dogeAPY"
-														title={"CRYPTO-AAVE"}
+														apy={CryptoAAVEAPY}
+														setAPY={setCryptoAAVEAPY}
+														eli={CryptoAAVEEli}
+														setEli={setCryptoAAVEEli}
+														pen={CryptoAAVEPen}
+														setPen={setCryptoAAVEPen}
+														initDataKeyAPY="cryptoAAVEAPY"
+														initDataKeyEli="cryptoAAVEEli"
+														initDataKeyPen="cryptoAAVEPen"
+														title={"Crypto-AAVE"}
 													/>
 
 													<Box
 														account={account}
 														initData={initData}
 														setActiveItem={setActiveItem}
-														coin={DogeAPY}
-														setCoin={setDogeAPY}
-														initDataKey="dogeAPY"
-														title={"CRYPTO-USDT"}
-													/>
-												</div>
-
-												<div className="row">
-													<Box
-														account={account}
-														initData={initData}
-														setActiveItem={setActiveItem}
-														coin={DogeAPY}
-														setCoin={setDogeAPY}
-														initDataKey="dogeAPY"
-														title={"CRYPTO-TUSD"}
-													/>
-
-													<Box
-														account={account}
-														initData={initData}
-														setActiveItem={setActiveItem}
-														coin={DogeAPY}
-														setCoin={setDogeAPY}
-														initDataKey="dogeAPY"
-														title={"CRYPTO-ETH"}
+														apy={CryptoUSDTAPY}
+														setAPY={setCryptoUSDTAPY}
+														eli={CryptoUSDTEli}
+														setEli={setCryptoUSDTEli}
+														pen={CryptoUSDTPen}
+														setPen={setCryptoUSDTPen}
+														initDataKeyAPY="cryptoUSDTAPY"
+														initDataKeyEli="cryptoUSDTEli"
+														initDataKeyPen="cryptoUSDTPen"
+														title={"Crypto-USDT"}
 													/>
 												</div>
 
@@ -783,20 +2348,66 @@ let AdminDashboard = () => {
 														account={account}
 														initData={initData}
 														setActiveItem={setActiveItem}
-														coin={DogeAPY}
-														setCoin={setDogeAPY}
-														initDataKey="dogeAPY"
-														title={"CRYPTO-GUSD"}
+														apy={CryptoTUSDAPY}
+														setAPY={setCryptoTUSDAPY}
+														eli={CryptoTUSDEli}
+														setEli={setCryptoTUSDEli}
+														pen={CryptoTUSDPen}
+														setPen={setCryptoTUSDPen}
+														initDataKeyAPY="cryptoTUSDAPY"
+														initDataKeyEli="cryptoTUSDEli"
+														initDataKeyPen="cryptoTUSDPen"
+														title={"Crypto-TUSD"}
 													/>
 
 													<Box
 														account={account}
 														initData={initData}
 														setActiveItem={setActiveItem}
-														coin={DogeAPY}
-														setCoin={setDogeAPY}
-														initDataKey="dogeAPY"
-														title={"CRYPTO-PAX"}
+														apy={CryptoETHAPY}
+														setAPY={setCryptoETHAPY}
+														eli={CryptoETHEli}
+														setEli={setCryptoETHEli}
+														pen={CryptoETHPen}
+														setPen={setCryptoETHPen}
+														initDataKeyAPY="cryptoETHAPY"
+														initDataKeyEli="cryptoETHEli"
+														initDataKeyPen="cryptoETHPen"
+														title={"Crypto-ETH"}
+													/>
+												</div>
+
+												<div className="row">
+													<Box
+														account={account}
+														initData={initData}
+														setActiveItem={setActiveItem}
+														apy={CryptoGUSDAPY}
+														setAPY={setCryptoGUSDAPY}
+														eli={CryptoGUSDEli}
+														setEli={setCryptoGUSDEli}
+														pen={CryptoGUSDPen}
+														setPen={setCryptoGUSDPen}
+														initDataKeyAPY="cryptoGUSDAPY"
+														initDataKeyEli="cryptoGUSDEli"
+														initDataKeyPen="cryptoGUSDPen"
+														title={"Crypto-GUSD"}
+													/>
+
+													<Box
+														account={account}
+														initData={initData}
+														setActiveItem={setActiveItem}
+														apy={CryptoPAXAPY}
+														setAPY={setCryptoPAXAPY}
+														eli={CryptoPAXEli}
+														setEli={setCryptoPAXEli}
+														pen={CryptoPAXPen}
+														setPen={setCryptoPAXPen}
+														initDataKeyAPY="cryptoPAXAPY"
+														initDataKeyEli="cryptoPAXEli"
+														initDataKeyPen="cryptoPAXPen"
+														title={"Crypto-PAX"}
 													/>
 												</div>
 											</div>
